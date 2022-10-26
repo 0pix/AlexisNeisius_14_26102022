@@ -1,14 +1,19 @@
 import React from 'react';
 import './Home.css'
+import {Link} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 const Home = () => {
 	return (
 		<div>
+			<Helmet>
+				<title>HRnet | Home</title>
+			</Helmet>
 			<div className="title">
 				<h1>HRnet</h1>
 			</div>
 			<div className="container">
-				<a href="employee-list.html">View Current Employees</a>
+				<Link  to={'/Employee'} >View Current Employees</Link>
 				<h2>Create Employee</h2>
 				<form action="#" id="create-employee">
 					<label htmlFor="first-name">First Name</label>
