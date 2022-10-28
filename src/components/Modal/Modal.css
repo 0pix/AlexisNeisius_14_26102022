@@ -1,0 +1,36 @@
+
+
+.backgroundModal{
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  position: relative;
+  background-color: #ffffff;
+  padding: 50px 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.closeModalBtn{
+  border-radius: 20px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #c0c0c0;
+  top: 10px;
+  right: 10px;
+}
+
+
