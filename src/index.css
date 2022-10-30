@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
@@ -11,6 +13,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
 }
 
 code {
@@ -25,9 +28,15 @@ button {
 }
 
 input {
-  background-color: #61dafb;
-  border: 1px solid red;
+  background-color: #e3e3e3;
+  width: 300px;
+  border: none;
   outline: none;
+  height: 40px;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 5px;
+  font-size: 1.2em;
 }
 
 select {
@@ -35,4 +44,6 @@ select {
   border: 1px solid red;
   outline: none;
 }
+
+
 

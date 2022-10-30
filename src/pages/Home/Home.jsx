@@ -1,11 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Home.css'
 import {Link} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import Modal from "../../components/Modal/Modal";
+import {useDispatch, useSelector} from "react-redux";
+import SelectDropDown from "../../components/SelectDropDown/SelectDropDown";
 
 const Home = () => {
 	const [openModal,setOpenModal] = useState(false)
+	const employees = useSelector(state => state.employees)
+	const dispatch = useDispatch()
+
+	const saveEmployee = (employee) => {
+		dispatch({type: 'saveEmployee', employee: employee})
+	}
+
+
+
 	const handlerSubmit = (e) =>{
 		e.preventDefault();
 		const employee = {
@@ -22,9 +33,13 @@ const Home = () => {
 		if (employee.firstName === '' || employee.lastName === '' || employee.dateOfBirth === '' || employee.startDate === '' || employee.street === '' || employee.city === ''|| employee.state === '' || employee.zipCode === '' || employee.department === '') {
 			alert('c\'est mort')
 		}else {
+			e.preventDefault();
 			// alert('ouiiiiiiiiiiiiii ça part')
 			setOpenModal(true)
-			console.log(employee)
+			// console.log(employee)
+			saveEmployee(employee)
+			localStorage.setItem('employees', JSON.stringify(employees));
+			console.log(employees)
 		}
 	}
 	return (
@@ -40,6 +55,8 @@ const Home = () => {
 				<Link  to={'/Employee'} >View Current Employees</Link>
 				<h2>Create Employee</h2>
 				<form onSubmit={(e) => handlerSubmit(e)} action="#" id="create-employee">
+					<SelectDropDown></SelectDropDown>
+
 					<label htmlFor="first-name">First Name</label>
 					<input type="text" id="first-name"/>
 

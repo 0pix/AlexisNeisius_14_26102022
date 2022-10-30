@@ -1,0 +1,36 @@
+.selectDropDown {
+  width: fit-content;
+  position: relative;
+
+}
+
+.selectDropDown ul {
+  background-color: #afb4d3;
+  width: 100%;
+}
+
+.selectDropDown li {
+  cursor: pointer;
+  /*background-color: red;*/
+  width: 100%;
+  padding: 5px 0;
+  padding-left: 5px;
+}
+
+.selectDropDown li:hover {
+ background-color: #8a9fb0;
+}
+
+.arrowDropDown {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 12px;
+  right: 10px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.arrowDropDown svg {
+  fill: #61dafb;
+
+}

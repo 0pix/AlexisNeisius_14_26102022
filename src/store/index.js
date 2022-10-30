@@ -1,45 +1,53 @@
 import {createStore} from "redux";
 
 const initialState = {
-	error: "",
-	token: "",
-	data: "",
-	buttonEdit: false,
+	employees: JSON.parse(localStorage.getItem('employees')) || [],
+	// error: "",
+	// token: "",
+	// data: "",
+	// buttonEdit: false,
 };
 
 const counterReducer = (state = initialState, action) => {
-	if (action.type === "getUserData") {
+	if (action.type === "saveEmployee") {
 		return {
 			...state,
-			data: action.data
+			...state.employees.push(action.employee)
 		};
 	}
-	if (action.type === "getError") {
-		return {
-			...state,
-			error: action.error,
-		};
-	}
-	if (action.type === "getToken") {
-		return {
-			...state,
-			error: action.error,
-			token: action.token
-		};
-	}
-	if (action.type === "editName") {
-		return {
-			...state,
-			buttonEdit: !state.buttonEdit
-		};
-	}
-	if (action.type === "signOut") {
-		return {
-			...state,
-			token: "",
-			data: ""
-		};
-	}
+
+	// if (action.type === "getUserData") {
+	// 	return {
+	// 		...state,
+	// 		data: action.data
+	// 	};
+	// }
+	// if (action.type === "getError") {
+	// 	return {
+	// 		...state,
+	// 		error: action.error,
+	// 	};
+	// }
+	// if (action.type === "getToken") {
+	// 	return {
+	// 		...state,
+	// 		error: action.error,
+	// 		token: action.token
+	// 	};
+	// }
+	// if (action.type === "editName") {
+	// 	return {
+	// 		...state,
+	// 		buttonEdit: !state.buttonEdit
+	// 	};
+	// }
+	// if (action.type === "signOut") {
+	// 	return {
+	// 		...state,
+	// 		token: "",
+	// 		data: ""
+	// 	};
+	// }
 	return state;
 };
 
