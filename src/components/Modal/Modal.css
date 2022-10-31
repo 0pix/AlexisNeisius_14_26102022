@@ -1,6 +1,5 @@
 
-
-.backgroundModal{
+.backgroundModal {
   position: absolute;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.75);
@@ -11,7 +10,7 @@
   align-items: center;
 }
 
-.modal{
+.modal {
   position: relative;
   background-color: #ffffff;
   padding: 50px 100px;
@@ -20,7 +19,7 @@
   font-weight: 600;
 }
 
-.closeModalBtn{
+.closeModalBtn {
   border-radius: 20px;
   position: absolute;
   display: flex;

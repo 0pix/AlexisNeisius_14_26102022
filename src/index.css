@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-*{
+:root {
+  --main-bg-btn: #223069;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,7 +22,7 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 button {
@@ -40,10 +44,32 @@ input {
 }
 
 select {
-  background-color:  #61dafb;
+  background-color: #61dafb;
   border: 1px solid red;
   outline: none;
 }
 
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #707070 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #707070;
+  border-radius: 10px;
+  /*border: 3px solid #ffffff;*/
+}
 
 

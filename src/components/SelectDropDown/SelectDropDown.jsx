@@ -1,35 +1,34 @@
 import React, {useState} from 'react';
 import './selectDropDown.css'
 import arrow from '../../assets/svg/arrowDropDown.svg'
+import {useSelector} from "react-redux";
 
-const SelectDropDown = () => {
-	const [message, setMessage] = useState('chose option');
+const SelectDropDown = ({data, htmlFor, label}) => {
+	const [message, setMessage] = useState('');
 	const [open, setOpen] = useState(false);
+
 
 	const handleClick = (event) => {
 		event.preventDefault();
 		setMessage(event.target.innerHTML
 		);
+		setOpen(!open)
 	};
 
+
 	return (
-		<div >
-			<label htmlFor="first-name">State</label>
+		<div>
+			{open && <div onClick={() => setOpen(!open)} className={'backgroundDropDown'}></div>}
+			<label htmlFor={htmlFor}>{label}</label>
 			<div className={'selectDropDown'}>
-			<img onClick={() => setOpen(!open)} className={'arrowDropDown'} src={arrow} alt={'arrow'}/>
-				<input type="text" id="state" value={message}/>
-				{ open && <ul>
-					<li onClick={handleClick}>coucou toi</li>
-					<li onClick={handleClick}>tu es beau</li>
-					<li onClick={handleClick}>amoumou</li>
-					<li onClick={handleClick}>chat</li>
-					<li onClick={handleClick}>chien</li>
-					<li onClick={handleClick}>toutou</li>
-					<li onClick={handleClick}>ow</li>
-					<li onClick={handleClick}>le fdp</li>
-					<li onClick={handleClick}>sur mes morts</li>
-					<li onClick={handleClick}>Kiriko</li>
-					<li onClick={handleClick}>nerf la pute</li>
+				<img style={open ? {transform: "translate(-50%,-50%) rotate(180deg)"} : null} onClick={() => setOpen(!open)}
+						 className={'arrowDropDown'} src={arrow} alt={'arrow'}/>
+				<input onClick={() => setOpen(!open)} autoComplete={"chrome-off"} placeholder={'chose option'}
+							 className={'stateInput'} type="text" id="state" value={message}/>
+				{open && <ul>
+					{data.map((state) =>
+						<li onClick={handleClick}>{state}</li>
+					)}
 				</ul>}
 			</div>
 

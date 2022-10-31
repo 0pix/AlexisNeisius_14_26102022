@@ -4,7 +4,6 @@
   justify-content: center;
 }
 
-
 .container {
   display: flex;
   flex-direction: column;
@@ -20,4 +19,21 @@ label {
 
 .address {
   margin-top: 10px;
+}
+
+.containerBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.containerBtn button {
+  /*background-color: royalblue;*/
+  background-color: var(--main-bg-btn);
+  padding: 10px 50px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  color: white;
 }

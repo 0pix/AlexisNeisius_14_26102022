@@ -7,32 +7,32 @@ import {useDispatch, useSelector} from "react-redux";
 import SelectDropDown from "../../components/SelectDropDown/SelectDropDown";
 
 const Home = () => {
-	const [openModal,setOpenModal] = useState(false)
+	const [openModal, setOpenModal] = useState(false)
 	const employees = useSelector(state => state.employees)
+	const states = useSelector(state => state.states)
+	const department = useSelector(state => state.department)
 	const dispatch = useDispatch()
 
 	const saveEmployee = (employee) => {
 		dispatch({type: 'saveEmployee', employee: employee})
 	}
 
-
-
-	const handlerSubmit = (e) =>{
+	const handlerSubmit = (e) => {
 		e.preventDefault();
 		const employee = {
-			firstName : e.target[0].value || '',
-			lastName  : e.target[1].value || '',
+			firstName: e.target[0].value || '',
+			lastName: e.target[1].value || '',
 			dateOfBirth: e.target[2].value || '',
-			startDate : e.target[3].value || '',
-			street : e.target[5].value || '',
+			startDate: e.target[3].value || '',
+			street: e.target[5].value || '',
 			city: e.target[6].value || '',
 			state: e.target[7].value || '',
 			zipCode: e.target[8].value || '',
 			department: e.target[9].value || ''
 		}
-		if (employee.firstName === '' || employee.lastName === '' || employee.dateOfBirth === '' || employee.startDate === '' || employee.street === '' || employee.city === ''|| employee.state === '' || employee.zipCode === '' || employee.department === '') {
+		if (employee.firstName === '' || employee.lastName === '' || employee.dateOfBirth === '' || employee.startDate === '' || employee.street === '' || employee.city === '' || employee.state === '' || employee.zipCode === '' || employee.department === '') {
 			alert('c\'est mort')
-		}else {
+		} else {
 			e.preventDefault();
 			// alert('ouiiiiiiiiiiiiii ça part')
 			setOpenModal(true)
@@ -42,71 +42,52 @@ const Home = () => {
 			console.log(employees)
 		}
 	}
-	return (
-		<div>
-			<Helmet>
-				<title>HRnet | Home</title>
-			</Helmet>
-			 <Modal openModal={openModal} setOpenModal={setOpenModal}>Employé enregistré</Modal>
-			<div className="title">
-				<h1>HRnet</h1>
-			</div>
-			<div className="container">
-				<Link  to={'/Employee'} >View Current Employees</Link>
-				<h2>Create Employee</h2>
-				<form onSubmit={(e) => handlerSubmit(e)} action="#" id="create-employee">
-					<SelectDropDown></SelectDropDown>
+	return (<div>
+		<Helmet>
+			<title>HRnet | Home</title>
+		</Helmet>
+		<Modal openModal={openModal} setOpenModal={setOpenModal}>Employé enregistré</Modal>
+		<div className="title">
+			<h1>HRnet</h1>
+		</div>
+		<div className="container">
+			<Link to={'/Employee'}>View Current Employees</Link>
+			<h2>Create Employee</h2>
+			<form onSubmit={(e) => handlerSubmit(e)} action="#" id="create-employee">
 
-					<label htmlFor="first-name">First Name</label>
-					<input type="text" id="first-name"/>
+				<label htmlFor="first-name">First Name</label>
+				<input type="text" id="first-name"/>
 
-					<label htmlFor="last-name">Last Name</label>
-					<input type="text" id="last-name"/>
+				<label htmlFor="last-name">Last Name</label>
+				<input type="text" id="last-name"/>
 
-					<label htmlFor="date-of-birth">Date of Birth</label>
-					<input id="date-of-birth" type="text"/>
+				<label htmlFor="date-of-birth">Date of Birth</label>
+				<input id="date-of-birth" type="text"/>
 
-						<label htmlFor="start-date">Start Date</label>
-						<input id="start-date" type="text"/>
+				<label htmlFor="start-date">Start Date</label>
+				<input id="start-date" type="text"/>
 
-							<fieldset className="address">
-								<legend>Address</legend>
+				<fieldset className="address">
+					<legend>Address</legend>
 
-								<label htmlFor="street">Street</label>
-								<input id="street" type="text"/>
+					<label htmlFor="street">Street</label>
+					<input id="street" type="text"/>
 
-								<label htmlFor="city">City</label>
-								<input id="city" type="text"/>
+					<label htmlFor="city">City</label>
+					<input id="city" type="text"/>
 
-								<label htmlFor="state">State</label>
-								<select name="state"  id="state">
-									<option value="">--Please choose an option--</option>
-									<option value="dog">Dog</option>
-									<option value="cat">Cat</option>
-									<option value="hamster">Hamster</option>
-									<option value="parrot">Parrot</option>
-									<option value="spider">Spider</option>
-									<option value="goldfish">Goldfish</option>
-								</select>
+					<SelectDropDown data={states} htmlFor={"state"} label={'State'}/>
 
-								<label htmlFor="zip-code">Zip Code</label>
-								<input id="zip-code" type="number"/>
-							</fieldset>
-
-							<label htmlFor="department">Department</label>
-					<select name="department" id="department">
-						<option>Sales</option>
-						<option>Marketing</option>
-						<option>Engineering</option>
-						<option>Human Resources</option>
-						<option>Legal</option>
-					</select>
-
-				<button>Save</button>
-				</form>
-			</div>
-			{/*<div id="confirmation" className="modal">Employee Created!</div>*/}
-		</div>);
+					<label htmlFor="zip-code">Zip Code</label>
+					<input id="zip-code" type="number"/>
+				</fieldset>
+				<SelectDropDown data={department} htmlFor={"department"} label={'Department'}/>
+				<div className={'containerBtn'}>
+					<button style={{margin: 'auto'}}>Save</button>
+				</div>
+			</form>
+		</div>
+	</div>);
 };
 
 export default Home;
