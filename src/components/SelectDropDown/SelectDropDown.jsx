@@ -17,7 +17,7 @@ const SelectDropDown = ({data, htmlFor, label}) => {
 
 
 	return (
-		<div>
+		<div className={'dropDown'}>
 			{open && <div onClick={() => setOpen(!open)} className={'backgroundDropDown'}></div>}
 			<label htmlFor={htmlFor}>{label}</label>
 			<div className={'selectDropDown'}>

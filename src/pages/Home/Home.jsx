@@ -5,6 +5,7 @@ import {Helmet} from "react-helmet";
 import Modal from "../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import SelectDropDown from "../../components/SelectDropDown/SelectDropDown";
+import Calendar from "../../components/Calendar/Calendar";
 
 const Home = () => {
 	const [openModal, setOpenModal] = useState(false)
@@ -31,7 +32,7 @@ const Home = () => {
 			department: e.target[9].value || ''
 		}
 		if (employee.firstName === '' || employee.lastName === '' || employee.dateOfBirth === '' || employee.startDate === '' || employee.street === '' || employee.city === '' || employee.state === '' || employee.zipCode === '' || employee.department === '') {
-			alert('c\'est mort')
+			alert('un ou plusieurs champs ne sont pas remplis')
 		} else {
 			e.preventDefault();
 			// alert('ouiiiiiiiiiiiiii ça part')
@@ -42,7 +43,7 @@ const Home = () => {
 			console.log(employees)
 		}
 	}
-	return (<div>
+	return (<div className={'home'}>
 		<Helmet>
 			<title>HRnet | Home</title>
 		</Helmet>
@@ -86,6 +87,7 @@ const Home = () => {
 					<button style={{margin: 'auto'}}>Save</button>
 				</div>
 			</form>
+			<Calendar/>
 		</div>
 	</div>);
 };

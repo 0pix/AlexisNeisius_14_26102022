@@ -1,0 +1,41 @@
+.calendar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  overflow: hidden;
+  grid-auto-rows: minmax(30px, auto);
+}
+
+.parent div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 25px;
+}
+
+.previousNextDays {
+  color: #c5c5c5;
+}
+
+.days {
+  font-size: 0.8em;
+}
+
+.today {
+  background-color: #223069;
+  color: white;
+}
+
+.titleDate {
+  display: flex;
+}

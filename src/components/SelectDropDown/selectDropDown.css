@@ -1,3 +1,8 @@
+.dropDown {
+  max-width: 300px;
+  width: 100%;
+}
+
 .backgroundDropDown {
   position: absolute;
   width: 100%;
@@ -8,15 +13,21 @@
 }
 
 .selectDropDown {
-  width: fit-content;
   position: relative;
+  max-width: 300px;
 }
 
 .selectDropDown input {
   z-index: 10;
   caret-color: transparent;
   cursor: pointer;
+  width: 100%;
 }
+
+.dropDown label {
+  width: 100%;
+}
+
 
 .selectDropDown input::placeholder {
   color: #b8b8b8;

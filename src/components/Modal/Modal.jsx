@@ -1,7 +1,8 @@
 // import React, {useState} from 'react';
-import  './Modal.css'
+import './Modal.css'
 
 const Modal = ({children, openModal, setOpenModal}) => {
+	
 	return (
 		<div>
 			{openModal && <div onClick={() => setOpenModal(false)} className={'backgroundModal'}>
