@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Calendar.css'
+import inputCalendar from "./InputCalendar";
+import InputCalendar from "./InputCalendar";
 
 const Calendar = () => {
 	// console.log(date); // Fri Jun 17 2022 11:27:28 GMT+0100 (British Summer Time)
@@ -27,6 +29,7 @@ const Calendar = () => {
 	const currentYear = currentDate.getFullYear()
 	const [month, setMonth] = useState(currentMonth)
 	const [year, setYear] = useState(currentYear)
+	const [day, setDay] = useState(currentDay)
 	const getPreviousMonth = getDaysInMonth(year, month - 1)
 	const selectDate = new Date(`${month}/${currentDay}/${year}`)
 	const daysInCurrentMonth = getDaysInMonth(year, month);
@@ -66,11 +69,9 @@ const Calendar = () => {
 	}
 
 	const nextDays = getNextDay()
-	console.log(nextDays)
-	// console.log(daysInCurrentMonth, previousDays)
 //******************************* Functions Buttons  *******************************//
 	const previousMonth = (number) => {
-		setMonth(number)
+		setMonth(month - 1)
 		if (month <= 1) {
 			setMonth(12)
 			setYear(year - 1)
@@ -79,36 +80,42 @@ const Calendar = () => {
 	const today = () => {
 		setMonth(currentMonth)
 		setYear(currentYear)
+		setDay(currentDay.toString())
 	}
 	const nextMonth = (number) => {
-		setMonth(number)
+		setMonth(month + 1)
 		if (month >= 12) {
 			setMonth(1)
 			setYear(year + 1)
 		}
 	}
 
+	useEffect(() => {
+		console.log(day)
+	}, [day])
 
+	console.log('test')
 	return (<div className={'calendar'}>
 		<div className={'titleDate'}>
+			<button
+				onClick={previousMonth}>-
+			</button>
 			<div>{monthLetter}</div>
 			<div>{year}</div>
+			<button
+				onClick={nextMonth}>+
+			</button>
 		</div>
+		<InputCalendar data={year} setData={setYear}/>
 		<div className={'parent'}>
 			{days.map((el) => <div className={'days'}>{el}</div>)}
 			{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
-			{allDays.map((el) => <div className={el === currentDay ? 'today' : null}>{el}</div>)}
+			{allDays.map((el) => <div className={el.toString() === day ? 'today' : null}
+																onClick={(e) => setDay(e.target.innerHTML)}
+			>{el}</div>)}
 			{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
 		</div>
-		<button style={{padding: '10px', backgroundColor: "red", margin: '20px'}}
-						onClick={() => previousMonth(month - 1)}>-
-		</button>
-		<button onClick={today}>today</button>
-		{/*<button style={{padding: '10px', backgroundColor: "red", margin: '20px'}} onClick={() => console.log(month)}>LOG*/}
-		{/*</button>*/}
-		<button style={{padding: '10px', backgroundColor: "red", margin: '20px'}}
-						onClick={() => nextMonth(month + 1)}>+
-		</button>
+		<button className={'todayBtn'} onClick={today}>today</button>
 		<div>
 
 		</div>
