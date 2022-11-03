@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Calendar.css'
-import inputCalendar from "./InputCalendar";
-import InputCalendar from "./InputCalendar";
+import InputMonthCalendar from "./InputMonthCalendar";
 
 const Calendar = () => {
 	// console.log(date); // Fri Jun 17 2022 11:27:28 GMT+0100 (British Summer Time)
@@ -13,9 +12,12 @@ const Calendar = () => {
 	// 	let test = new Date(2022, month - 1, 1)
 	// 	return test.toLocaleDateString('en-GB', {weekday: 'long'})
 	// }
-
 	function getFirstDayInMonth(year, month) {
-		return new Date(2022, month - 1, 1).getDay()
+		const firstDay = new Date(`${month}/1/${year}`).getDay()
+		if (firstDay === 0) {
+			return 6
+		}
+		return firstDay - 1
 	}
 
 	// function getDayName(dateStr, locale) {
@@ -31,11 +33,20 @@ const Calendar = () => {
 	const [year, setYear] = useState(currentYear)
 	const [day, setDay] = useState(currentDay)
 	const getPreviousMonth = getDaysInMonth(year, month - 1)
-	const selectDate = new Date(`${month}/${currentDay}/${year}`)
+	const selectDate = new Date(`${month}/${day}/${year}`)
 	const daysInCurrentMonth = getDaysInMonth(year, month);
 	const firstDayMonth = getFirstDayInMonth(year, month)
 	const monthLetter = selectDate.toLocaleString('en-GB', {month: 'long'})
 	const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', "Sun"]
+
+	// console.log(selectDate)
+	console.log('le pas use', firstDayMonth)
+
+
+	// useEffect(() => {
+	// 	setFirstDayMonth(getFirstDayInMonth(year, month))
+	// 	console.log('le use', firstDayMonth)
+	// }, [month, day, year])
 
 
 	const allDay = () => {
@@ -91,10 +102,8 @@ const Calendar = () => {
 	}
 
 	useEffect(() => {
-		console.log(day)
 	}, [day])
 
-	console.log('test')
 	return (<div className={'calendar'}>
 		<div className={'titleDate'}>
 			<button
@@ -106,7 +115,8 @@ const Calendar = () => {
 				onClick={nextMonth}>+
 			</button>
 		</div>
-		<InputCalendar data={year} setData={setYear}/>
+		<InputMonthCalendar data={monthLetter} setData={setMonth} minMonth={1} maxMonth={12}/>
+		{/*<InputMonthCalendar data={year} setData={setYear} minValueYear={1920} maxValueYear={currentYear}/>*/}
 		<div className={'parent'}>
 			{days.map((el) => <div className={'days'}>{el}</div>)}
 			{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
@@ -116,9 +126,6 @@ const Calendar = () => {
 			{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
 		</div>
 		<button className={'todayBtn'} onClick={today}>today</button>
-		<div>
-
-		</div>
 	</div>);
 };
 
