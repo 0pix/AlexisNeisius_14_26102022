@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Calendar.css'
 import InputMonthCalendar from "./InputMonthCalendar";
+import InputYearCalendar from "./InputYearCalendar";
 
 const Calendar = () => {
 	// console.log(date); // Fri Jun 17 2022 11:27:28 GMT+0100 (British Summer Time)
@@ -8,10 +9,6 @@ const Calendar = () => {
 		return new Date(year, month, 0).getDate();
 	}
 
-	// function getFirstDayInMonth(year, month) {
-	// 	let test = new Date(2022, month - 1, 1)
-	// 	return test.toLocaleDateString('en-GB', {weekday: 'long'})
-	// }
 	function getFirstDayInMonth(year, month) {
 		const firstDay = new Date(`${month}/1/${year}`).getDay()
 		if (firstDay === 0) {
@@ -20,10 +17,6 @@ const Calendar = () => {
 		return firstDay - 1
 	}
 
-	// function getDayName(dateStr, locale) {
-	// 	var date = new Date(dateStr);
-	// 	return date.toLocaleDateString(locale, {weekday: 'long'});
-	// }
 
 	const currentDate = new Date()
 	const currentDay = currentDate.getDay() - 1
@@ -38,9 +31,6 @@ const Calendar = () => {
 	const firstDayMonth = getFirstDayInMonth(year, month)
 	const monthLetter = selectDate.toLocaleString('en-GB', {month: 'long'})
 	const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', "Sun"]
-
-	// console.log(selectDate)
-	console.log('le pas use', firstDayMonth)
 
 
 	// useEffect(() => {
@@ -78,8 +68,8 @@ const Calendar = () => {
 		}
 		return nextDays
 	}
-
 	const nextDays = getNextDay()
+
 //******************************* Functions Buttons  *******************************//
 	const previousMonth = (number) => {
 		setMonth(month - 1)
@@ -101,26 +91,21 @@ const Calendar = () => {
 		}
 	}
 
-	useEffect(() => {
-	}, [day])
-
 	return (<div className={'calendar'}>
 		<div className={'titleDate'}>
-			<button
-				onClick={previousMonth}>-
+			<button className={'titleDateBtn'}
+							onClick={previousMonth}>-
 			</button>
-			<div>{monthLetter}</div>
-			<div>{year}</div>
-			<button
-				onClick={nextMonth}>+
+			<InputMonthCalendar data={monthLetter} setData={setMonth}/>
+			<button className={'titleDateBtn'}
+							onClick={nextMonth}>+
 			</button>
+			<InputYearCalendar data={year} setData={setYear} minValue={1920} maxValue={currentYear}/>
 		</div>
-		<InputMonthCalendar data={monthLetter} setData={setMonth} minMonth={1} maxMonth={12}/>
-		{/*<InputMonthCalendar data={year} setData={setYear} minValueYear={1920} maxValueYear={currentYear}/>*/}
 		<div className={'parent'}>
 			{days.map((el) => <div className={'days'}>{el}</div>)}
 			{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
-			{allDays.map((el) => <div className={el.toString() === day ? 'today' : null}
+			{allDays.map((el) => <div className={el.toString() === day ? 'today' : 'allDays'}
 																onClick={(e) => setDay(e.target.innerHTML)}
 			>{el}</div>)}
 			{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}

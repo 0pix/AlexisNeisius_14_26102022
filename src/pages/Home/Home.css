@@ -63,7 +63,7 @@
   text-align: left;
 }
 
-.home input, .home label, .home fieldset label, .home fieldset input, .home form label, .home form input {
+.home form input, .home label, .home fieldset label, .home fieldset input, .home form label, .home form input {
   width: 100%;
   max-width: 300px;
 }
