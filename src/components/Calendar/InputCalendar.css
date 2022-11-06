@@ -1,9 +1,27 @@
 .inputCalendar {
   position: relative;
+  width: fit-content;
 }
 
 .inputCalendar button {
-  background-color: #e3e3e3;
+  background-color: transparent;
+  height: 20px;
+}
+
+.inputCalendar ul {
+  position: absolute;
+  /*transform: translate(-50%, 0);*/
+  background-color: #edf1ff;
+  width: fit-content;
+  text-align: center;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 20px;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
 }
 
 .inputCalendar li {
@@ -12,14 +30,3 @@
   padding: 5px;
 }
 
-.inputCalendar ul {
-  position: absolute;
-  background-color: #d3d3d3;
-  max-width: fit-content;
-  text-align: center;
-  max-height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  margin-bottom: 20px;
-  z-index: 2;
-}

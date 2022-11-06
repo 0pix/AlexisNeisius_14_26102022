@@ -3,9 +3,6 @@ import './InputCalendar.css'
 
 const InputMonthCalendar = ({data, setData}) => {
 	const [openInput, setOpenInput] = useState(false)
-	const stringToNumber = (string) => {
-		setData(Number(string))
-	}
 
 	const months = [
 		{
@@ -58,11 +55,17 @@ const InputMonthCalendar = ({data, setData}) => {
 		},
 	]
 
+	const handlerClick = (value) => {
+		setData(parseInt(value))
+		setOpenInput(!openInput)
+	}
+
+
 	return (
 		<div className={'inputCalendar'}>
-			<button onClick={() => setOpenInput(!openInput)}>{data}</button>
+			<button onClick={() => setOpenInput(!openInput)}>{months[data - 1].letter}</button>
 			{openInput && <ul>
-				{months.map((el) => <li onClick={() => stringToNumber(el.number)}>{el.letter}</li>)}
+				{months.reverse().map((el) => <li onClick={() => handlerClick(el.number)}>{el.letter}</li>)}
 			</ul>}
 		</div>
 	);

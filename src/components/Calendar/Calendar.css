@@ -3,10 +3,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #e3e3e3;
+  background-color: #e0e6ff;
   padding: 20px;
   border-radius: 10px;
   font-weight: 600;
+  margin: 20px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
 .parent {
@@ -33,11 +35,12 @@
 /*}*/
 
 .previousNextDays {
-  color: #c5c5c5;
+  color: #ffffff;
 }
 
 .days {
   font-size: 0.8em;
+  margin-bottom: 5px;
 }
 
 .allDays {
@@ -46,12 +49,16 @@
 
 .allDays:hover {
   background-color: orange;
+  border-radius: 10px;
+
 }
 
 
 .today {
   background-color: #223069;
   color: white;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .todayBtn {
@@ -59,7 +66,8 @@
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
-  margin-top: 10px
+  margin-top: 10px;
+
 }
 
 .titleDate {
@@ -78,4 +86,6 @@
   width: 25px;
   height: 25px;
   border-radius: 30px;
+  background-color: transparent;
+  font-size: 1.2em;
 }

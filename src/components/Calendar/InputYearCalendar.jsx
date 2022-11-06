@@ -3,9 +3,7 @@ import './InputCalendar.css'
 
 const InputYearCalendar = ({data, setData, minValue, maxValue}) => {
 	const [openInput, setOpenInput] = useState(false)
-	const stringToNumber = (string) => {
-		setData(Number(string))
-	}
+
 
 	const years = () => {
 		const years = [minValue]
@@ -15,13 +13,17 @@ const InputYearCalendar = ({data, setData, minValue, maxValue}) => {
 		return years
 	}
 
+	const handlerClick = (value) => {
+		setData(parseInt(value))
+		setOpenInput(!openInput)
+	}
 	const yearsInput = years().reverse()
 
 	return (
 		<div className={'inputCalendar'}>
 			<button onClick={() => setOpenInput(!openInput)}>{data}</button>
 			{openInput && <ul>
-				{yearsInput.map((e) => <li onClick={(e) => stringToNumber(e.target.innerHTML)}>{e}</li>)}
+				{yearsInput.map((el) => <li onClick={(e) => handlerClick(e.target.innerHTML)}>{el}</li>)}
 			</ul>}
 		</div>
 	);
