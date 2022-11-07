@@ -1,71 +1,32 @@
 import React, {useState} from 'react';
 import './InputCalendar.css'
 
-const InputMonthCalendar = ({data, setData}) => {
+const InputMonthCalendar = ({data, setData, language}) => {
 	const [openInput, setOpenInput] = useState(false)
 
-	const months = [
-		{
-			letter: 'January',
-			number: 1
-		},
-		{
-			letter: 'February',
-			number: 2
-		},
-		{
-			letter: 'March',
-			number: 3
-		},
-		{
-			letter: 'April',
-			number: 4
-		},
-		{
-			letter: 'May',
-			number: 5
-		},
-		{
-			letter: 'June',
-			number: 6
-		},
-		{
-			letter: 'July',
-			number: 7
-		},
-		{
-			letter: 'August',
-			number: 8
-		},
-		{
-			letter: 'September',
-			number: 9
-		},
-		{
-			letter: 'October',
-			number: 10
-		},
-		{
-			letter: 'November',
-			number: 11
-		},
-		{
-			letter: 'December',
-			number: 12
-		},
-	]
-
-	const handlerClick = (value) => {
-		setData(parseInt(value))
-		setOpenInput(!openInput)
+	const getMonths = () => {
+		const tabler = []
+		for (let x = 1; x <= 12; x++) {
+			const date = new Date(`${x} 27 2017`)
+			const month = date.toLocaleString(`${language}`, {month: 'long'})
+			tabler.push(month)
+		}
+		return tabler
 	}
 
+	const months = getMonths()
+
+	const handlerClick = (value) => {
+		setData(months.indexOf(value) + 1)
+		setOpenInput(!openInput)
+	}
+	
 
 	return (
 		<div className={'inputCalendar'}>
-			<button onClick={() => setOpenInput(!openInput)}>{months[data - 1].letter}</button>
+			<button onClick={() => setOpenInput(!openInput)}>{months[data - 1]}</button>
 			{openInput && <ul>
-				{months.reverse().map((el) => <li onClick={() => handlerClick(el.number)}>{el.letter}</li>)}
+				{months.map((el) => <li onClick={() => handlerClick(el)}>{el}</li>)}
 			</ul>}
 		</div>
 	);

@@ -3,7 +3,7 @@ import './Calendar.css'
 import InputMonthCalendar from "./InputMonthCalendar";
 import InputYearCalendar from "./InputYearCalendar";
 
-const Calendar = () => {
+const Calendar = ({language}) => {
 	// console.log(currentDay); // Fri Jun 17 2022 11:27:28 GMT+0100 (British Summer Time)
 	function getDaysInMonth(year, month) {
 		return new Date(year, month, 0).getDate();
@@ -17,6 +17,20 @@ const Calendar = () => {
 		return firstDay - 1
 	}
 
+	const getDays = () => {
+		const tabler = []
+		for (let x = 1; x <= 7; x++) {
+			const date = new Date(`8 ${x} 2022`)
+			const day = date.toLocaleString(language, {weekday: 'short'})
+			if (day[day.length - 1] === ".") {
+				tabler.push(day.slice(0, -1))
+			} else {
+				tabler.push(day)
+			}
+		}
+		return tabler
+	}
+
 	const currentDate = new Date()
 	const currentDay = currentDate.getDate()
 	const currentMonth = currentDate.getMonth() + 1
@@ -27,7 +41,7 @@ const Calendar = () => {
 	const getPreviousMonth = getDaysInMonth(year, month - 1)
 	const daysInCurrentMonth = getDaysInMonth(year, month);
 	const firstDayMonth = getFirstDayInMonth(year, month)
-	const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', "Sun"]
+	const days = getDays()
 
 
 	const allDay = () => {
@@ -78,24 +92,25 @@ const Calendar = () => {
 			setYear(year + 1)
 		}
 	}
-
-	console.log('test')
-	console.log(allDay())
-	console.log('day :', day)
+	console.log(days)
+	// console.log('test')
+	// console.log(allDay())
+	// console.log('day :', day)
+	// https://www.w3schools.com/jsref/jsref_tolocalestring.asp
 
 	return (<div className={'calendar'}>
 		<div className={'titleDate'}>
 			<button className={'titleDateBtn'}
 							onClick={previousMonth}>-
 			</button>
-			<InputMonthCalendar data={month} setData={setMonth}/>
+			<InputMonthCalendar data={month} setData={setMonth} language={language}/>
 			<button className={'titleDateBtn'}
 							onClick={nextMonth}>+
 			</button>
 			<InputYearCalendar data={year} setData={setYear} minValue={1920} maxValue={currentYear}/>
 		</div>
 		<div className={'parent'}>
-			{days.map((el) => <div className={'days'}>{el}</div>)}
+			{days.map((el) => <div className={'days'}>{el.slice('.')}</div>)}
 			{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
 			{allDays.map((el) => <div className={el === day ? 'today' : 'allDays'}
 																onClick={(e) => setDay(parseInt(e.target.innerHTML))}

@@ -87,7 +87,7 @@ const Home = () => {
 					<button style={{margin: 'auto'}}>Save</button>
 				</div>
 			</form>
-			<Calendar/>
+			<Calendar language={'en-US'}/>
 		</div>
 	</div>);
 };
