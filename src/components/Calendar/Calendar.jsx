@@ -3,7 +3,7 @@ import './Calendar.css'
 import InputMonthCalendar from "./InputMonthCalendar";
 import InputYearCalendar from "./InputYearCalendar";
 
-const Calendar = ({language}) => {
+const Calendar = ({language, label, htmlFor}) => {
 	// console.log(currentDay); // Fri Jun 17 2022 11:27:28 GMT+0100 (British Summer Time)
 	function getDaysInMonth(year, month) {
 		return new Date(year, month, 0).getDate();
@@ -42,6 +42,7 @@ const Calendar = ({language}) => {
 	const daysInCurrentMonth = getDaysInMonth(year, month);
 	const firstDayMonth = getFirstDayInMonth(year, month)
 	const days = getDays()
+	const [openCalendar, setOpenCalendar] = useState(false)
 
 
 	const allDay = () => {
@@ -98,27 +99,34 @@ const Calendar = ({language}) => {
 	// console.log('day :', day)
 	// https://www.w3schools.com/jsref/jsref_tolocalestring.asp
 
-	return (<div className={'calendar'}>
-		<div className={'titleDate'}>
-			<button className={'titleDateBtn'}
-							onClick={previousMonth}>-
-			</button>
-			<InputMonthCalendar data={month} setData={setMonth} language={language}/>
-			<button className={'titleDateBtn'}
-							onClick={nextMonth}>+
-			</button>
-			<InputYearCalendar data={year} setData={setYear} minValue={1920} maxValue={currentYear}/>
+	return (
+		<div className={'calendarContainer'}>
+			<label htmlFor={htmlFor}>{label}</label>
+			<input onClick={() => setOpenCalendar(!openCalendar)} autoComplete={"chrome-off"} placeholder={'chose option'}
+						 className={'stateInput'} type="text" id="state" value={`${day}/${month}/${year}`}/>
+			{openCalendar && <div className={'calendar'}>
+				<div className={'titleDate'}>
+					<button className={'titleDateBtn'}
+									onClick={previousMonth} type={"button"}>-
+					</button>
+					<InputMonthCalendar data={month} setData={setMonth} language={language}/>
+					<button className={'titleDateBtn'}
+									onClick={nextMonth} type={"button"}>+
+					</button>
+					<InputYearCalendar data={year} setData={setYear} minValue={1920} maxValue={currentYear}/>
+				</div>
+				<div className={'parent'}>
+					{days.map((el) => <div className={'days'}>{el.slice('.')}</div>)}
+					{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
+					{allDays.map((el) => <div className={el === day ? 'today' : 'allDays'}
+																		onClick={(e) => setDay(parseInt(e.target.innerHTML))}
+					>{el}</div>)}
+					{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
+				</div>
+				<button type={"button"} className={'todayBtn'} onClick={today}>today</button>
+			</div>}
 		</div>
-		<div className={'parent'}>
-			{days.map((el) => <div className={'days'}>{el.slice('.')}</div>)}
-			{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
-			{allDays.map((el) => <div className={el === day ? 'today' : 'allDays'}
-																onClick={(e) => setDay(parseInt(e.target.innerHTML))}
-			>{el}</div>)}
-			{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
-		</div>
-		<button className={'todayBtn'} onClick={today}>today</button>
-	</div>);
+	);
 };
 
 export default Calendar;

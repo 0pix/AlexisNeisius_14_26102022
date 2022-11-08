@@ -18,6 +18,11 @@ const Home = () => {
 		dispatch({type: 'saveEmployee', employee: employee})
 	}
 
+	const functionCloseBtn = () => {
+		setOpenModal(false)
+		alert('ouiCoucou')
+	}
+
 	const handlerSubmit = (e) => {
 		e.preventDefault();
 		const employee = {
@@ -47,7 +52,8 @@ const Home = () => {
 		<Helmet>
 			<title>HRnet | Home</title>
 		</Helmet>
-		<Modal openModal={openModal} setOpenModal={setOpenModal}>Employé enregistré</Modal>
+		<Modal openModal={openModal} setOpenModal={setOpenModal} functionCloseBtn={functionCloseBtn}>Employé
+			enregistré</Modal>
 		<div className="title">
 			<h1>HRnet</h1>
 		</div>
@@ -62,11 +68,14 @@ const Home = () => {
 				<label htmlFor="last-name">Last Name</label>
 				<input type="text" id="last-name"/>
 
-				<label htmlFor="date-of-birth">Date of Birth</label>
-				<input id="date-of-birth" type="text"/>
+				{/*<label htmlFor="date-of-birth">Date of Birth</label>*/}
+				{/*<input id="date-of-birth" type="text"/>*/}
+				<Calendar language={'en-US'} label={'Date of Birth'} htmlFor={'start-date'}/>
 
-				<label htmlFor="start-date">Start Date</label>
-				<input id="start-date" type="text"/>
+				<Calendar language={'en-US'} label={'Start Date'} htmlFor={'start-date'}/>
+
+				{/*<label htmlFor="start-date">Start Date</label>*/}
+				{/*<input id="start-date" type="text"/>*/}
 
 				<fieldset className="address">
 					<legend>Address</legend>
@@ -87,7 +96,6 @@ const Home = () => {
 					<button style={{margin: 'auto'}}>Save</button>
 				</div>
 			</form>
-			<Calendar language={'en-US'}/>
 		</div>
 	</div>);
 };

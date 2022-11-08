@@ -20,11 +20,11 @@ const InputMonthCalendar = ({data, setData, language}) => {
 		setData(months.indexOf(value) + 1)
 		setOpenInput(!openInput)
 	}
-	
+
 
 	return (
 		<div className={'inputCalendar'}>
-			<button onClick={() => setOpenInput(!openInput)}>{months[data - 1]}</button>
+			<button type={"button"} onClick={() => setOpenInput(!openInput)}>{months[data - 1]}</button>
 			{openInput && <ul>
 				{months.map((el) => <li onClick={() => handlerClick(el)}>{el}</li>)}
 			</ul>}

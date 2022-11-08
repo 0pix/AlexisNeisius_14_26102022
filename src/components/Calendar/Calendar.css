@@ -1,3 +1,12 @@
+.calendarContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
 .calendar {
   display: flex;
   justify-content: center;
@@ -7,8 +16,13 @@
   padding: 20px;
   border-radius: 10px;
   font-weight: 600;
-  margin: 20px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1000;
+
 }
 
 .parent {

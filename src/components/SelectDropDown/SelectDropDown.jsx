@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './selectDropDown.css'
 import arrow from '../../assets/svg/arrowDropDown.svg'
-import {useSelector} from "react-redux";
 
 const SelectDropDown = ({data, htmlFor, label}) => {
 	const [message, setMessage] = useState('');
