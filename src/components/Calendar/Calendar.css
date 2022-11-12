@@ -1,3 +1,7 @@
+.test {
+  width: 100%;
+}
+
 .calendarContainer {
   width: 100%;
   display: flex;
@@ -7,12 +11,22 @@
   align-items: center;
 }
 
+.backgroundCalendar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /*background-color: rgba(255, 0, 0, 0.29);*/
+  z-index: 800;
+}
+
 .calendar {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #e0e6ff;
+  background-color: #f0f3ff;
   padding: 20px;
   border-radius: 10px;
   font-weight: 600;

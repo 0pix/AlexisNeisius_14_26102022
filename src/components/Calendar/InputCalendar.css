@@ -22,6 +22,7 @@
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 2;
+  caret-color: transparent;
 }
 
 .inputCalendar li {
@@ -29,4 +30,5 @@
   font-size: 0.9em;
   padding: 5px;
 }
+
 
