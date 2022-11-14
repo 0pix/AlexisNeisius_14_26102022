@@ -6,6 +6,7 @@ import Modal from "../../components/Modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import SelectDropDownnnn from "../../components/SelectDropDown/SelectDropDownnnn";
 import Calendar from "../../components/Calendar/Calendar";
+import Test from "../../components/Test/Test";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -59,6 +60,7 @@ const Home = () => {
   };
   return (
     <div className={"home"}>
+      <Test></Test>
       <Helmet>
         <title>HRnet | Home</title>
       </Helmet>

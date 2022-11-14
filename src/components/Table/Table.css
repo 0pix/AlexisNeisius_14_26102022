@@ -1,0 +1,13 @@
+.table th {
+  cursor: pointer;
+  background-color: #347385;
+  padding: 5px 10px;
+  text-align: center;
+  color: white;
+}
+
+.table td {
+  background-color: #61dafb;
+  padding: 5px 10px;
+  text-align: center;
+}
