@@ -54,7 +54,7 @@ const Employee = () => {
 		},
 		{
 			name: 'Zip Code',
-			props: 'state',
+			props: 'zipCode',
 			type: 'string'
 		}
 	]
@@ -75,7 +75,7 @@ const Employee = () => {
 											 type={item.type}>{item.name}</TableHead>)}
 				</tr>
 
-				{employeesSort.slice(0, 3).map((item) =>
+				{employeesSort.map((item) =>
 					<tr key={employeesSort.indexOf(item)}>
 						<TableData>{item.firstName}</TableData>
 						<TableData>{item.lastName}</TableData>

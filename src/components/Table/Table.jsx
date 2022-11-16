@@ -1,5 +1,6 @@
 import './Table.css'
-import React, {useReducer, useState} from 'react';
+import React, {useContext, useReducer, useState} from 'react';
+import SearchContextProvider, {SearchContext} from "./Context/SearchContext";
 
 function Table({children}) {
 
@@ -9,7 +10,9 @@ function Table({children}) {
 			<input type="search"/>
 			<table>
 				<tbody>
-				{children}
+				<SearchContextProvider>
+					{children}
+				</SearchContextProvider>
 				</tbody>
 			</table>
 		</div>
