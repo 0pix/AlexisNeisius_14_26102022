@@ -1,8 +1,15 @@
 import './Table.css'
 import React, {useContext, useReducer, useState} from 'react';
 import SearchContextProvider, {SearchContext} from "./Context/SearchContext";
+import TableHead from "./TableHead/TableHead";
+import tableHead from "./TableHead/TableHead";
 
-function Table({children}) {
+function Table({data}) {
+
+	const collumnName = Object.keys(data.length ? data[0] : null)
+	const [active, setActive] = useState("")
+
+	// console.log(collumnName)
 
 
 	return (
@@ -10,9 +17,9 @@ function Table({children}) {
 			<input type="search"/>
 			<table>
 				<tbody>
-				<SearchContextProvider>
-					{children}
-				</SearchContextProvider>
+				{collumnName.map((item, index) =>
+					<TableHead active={active} setActive={setActive} data={data} key={`${item}-${index}`} props={item}
+					>{item}</TableHead>)}
 				</tbody>
 			</table>
 		</div>

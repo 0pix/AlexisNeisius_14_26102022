@@ -6,7 +6,6 @@ import Modal from "../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import SelectDropDownnnn from "../../components/SelectDropDown/SelectDropDownnnn";
 import Calendar from "../../components/Calendar/Calendar";
-import Test from "../../components/Test/Test";
 
 const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -26,26 +25,27 @@ const Home = () => {
 	const handlerSubmit = (e) => {
 		e.preventDefault();
 		const employee = {
-			firstName: e.target[0].value || "",
-			lastName: e.target[1].value || "",
-			dateOfBirth: e.target[2].value || "",
-			startDate: e.target[3].value || "",
-			street: e.target[5].value || "",
-			city: e.target[6].value || "",
-			state: e.target[7].value || "",
-			zipCode: e.target[8].value || "",
-			department: e.target[9].value || "",
+			'First Name': e.target[0].value || "",
+			'Last Name': e.target[1].value || "",
+			'Start Date': e.target[3].value || "",
+			'Department': e.target[9].value || "",
+			'Date of Birth': e.target[2].value || "",
+			'Street': e.target[5].value || "",
+			'City': e.target[6].value || "",
+			'State': e.target[7].value || "",
+			'Zip Code': e.target[8].value || "",
 		};
+		// console.log(e)
 		if (
-			employee.firstName === "" ||
-			employee.lastName === "" ||
-			employee.dateOfBirth === "" ||
-			employee.startDate === "" ||
-			employee.street === "" ||
-			employee.city === "" ||
-			employee.state === "" ||
-			employee.zipCode === "" ||
-			employee.department === ""
+			employee['First Name'] === "" ||
+			employee['Last Name'] === "" ||
+			employee['Start Date'] === "" ||
+			employee['Department'] === "" ||
+			employee['Date of Birth'] === "" ||
+			employee['Street'] === "" ||
+			employee['City'] === "" ||
+			employee['State'] === "" ||
+			employee['Zip Code'] === ""
 		) {
 			alert("un ou plusieurs champs ne sont pas remplis");
 		} else {
