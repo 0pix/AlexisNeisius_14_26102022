@@ -1,106 +1,69 @@
-import React, {useState, useContext} from 'react';
-import {SearchContext} from "../Context/SearchContext";
+import React, {useState, useContext, useReducer} from 'react';
+import chevron from '../../../assets/svg/arrow-table.svg'
 
 
-const TableHead = ({children, data, props, active, setActive}) => {
-	// const {search, setSearch} = useContext(SearchContext)
+const TableHead = ({children, data, setData, props, active, setActive, reverse, setReverse}) => {
+
 	// const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
 	const sortArrayString = () => {
 		let array = [...data]
 		setActive(props)
 
-		if (props === active) {
-			console.log('c\'est un reverse !')
+		if (props !== active) {
+			array.sort((a, b) => {
+				const propsA = a[props].toUpperCase();
+				const propsB = b[props].toUpperCase();
+				if (propsA < propsB) {
+					return -1;
+				}
+				if (propsA > propsB) {
+					return 1;
+				}
+				return 0;
+			});
+			setReverse(false)
+		} else {
+			array.reverse()
+			setReverse(!reverse)
 		}
 
-		array.sort((a, b) => {
-			const propsA = a[props].toUpperCase();
-			const propsB = b[props].toUpperCase();
-			if (propsA < propsB) {
-				return -1;
-			}
-			if (propsA > propsB) {
-				return 1;
-			}
-			return 0;
-		});
-		// console.log(active)
-		// console.log(active)
-
-		// let array = [...data]
-		// setActive(props)
-		// if (active !== props) {
-		// 	array.sort((a, b) => {
-		// 		const propsA = a[props].toLowerCase();
-		// 		const propsB = b[props].toLowerCase();
-		// 		if (propsA < propsB) {
-		// 			return -1;
-		// 		}
-		// 		if (propsA > propsB) {
-		// 			return 1;
-		// 		}
-		// 		return 0;
-		// 	});
-		// } else {
-		// 	array.reverse()
-		// }
-		// setData(array)
-
-
-		// if (search.includes('toi')) {
-		// 	setSearch('ça marche')
-		// } else {
-		// 	setSearch('coucou toi')
-		// }
+		setData(array)
 	}
-	// console.log('active :', active)
-	return (
-		<th onClick={sortArrayString}>{children}</th>
-	);
 
-// 	const sortArrayDate = () => {
-// 		let array = [...data]
-// 		setActive(props)
-//
-// 	// 	array.sort((a, b) => {
-// 	// 		const propsA = a[props].split('/').reverse().join('');
-// 	// 		const propsB = b[props].split('/').reverse().join('');
-// 	// 		return propsA > propsB ? 1 : propsA < propsB ? -1 : 0;
-// 	// 	});
-// 	//
-// 	// 	setData(array)
-// 	//
-// 	//
-// 	// 	// let array = [...data]
-// 	// 	// setActive(props)
-// 	// 	// if (active !== props) {
-// 	// 	// 	array.sort((a, b) => {
-// 	// 	// 		const propsA = a[props].split('/').reverse().join('');
-// 	// 	// 		const propsB = b[props].split('/').reverse().join('');
-// 	// 	// 		return propsA > propsB ? 1 : propsA < propsB ? -1 : 0;
-// 	// 	// 	});
-// 	// 	// } else {
-// 	// 	// 	array.reverse()
-// 	// 	// }
-// 	// 	// setData(array)
-// 	// 	// console.log(active)
-// 	// 	// console.log(props)
-// 	//
-// 	// }
-//  return (<th onClick={sortArrayString}>{children}</th>)
-//
-// 	// if (type === 'string') {
-// 	// 	return (
-// 	// 		<th onClick={sortArrayString}>{children}</th>
-// 	// 	);
-// 	// }
-// 	// if (type === 'date') {
-// 	// 	return (
-// 	// 		<th onClick={() => sortArrayDate(data, props)}>{children}</th>
-// 	// 	);
-// 	// }
-//
-// };
+	const sortArrayDate = () => {
+		let array = [...data]
+		setActive(props)
+
+
+		if (props !== active) {
+			array.sort((a, b) => {
+				const propsA = a[props].split('/').reverse().join('');
+				const propsB = b[props].split('/').reverse().join('');
+				return propsA > propsB ? 1 : propsA < propsB ? -1 : 0;
+			});
+			setReverse(false)
+		} else {
+			array.reverse()
+			setReverse(!reverse)
+		}
+		setData(array)
+	}
+
+	if (data[0][props].includes('/')) {
+		return (
+			<th className={reverse ? "reverseArray" : null}
+					onClick={() => sortArrayDate()}>{children} {active === props &&
+				<img src={chevron}
+						 alt={chevron}/>}
+			</th>);
+	} else {
+		return (
+			<th className={reverse ? "reverseArray" : null} onClick={sortArrayString}>{children} {active === props &&
+				<img src={chevron}
+						 alt={chevron}/>}</th>
+		);
+	}
+
 }
 export default TableHead;
