@@ -5,27 +5,63 @@ import TableHead from "./TableHead/TableHead";
 import tableHead from "./TableHead/TableHead";
 import TableData from "./TableData/TableData";
 
-function Table({data}) {
+function Table({data, noDataMessage}) {
 
 	const collumnName = Object.keys(data.length ? data[0] : null)
 	const [active, setActive] = useState("")
 	const [employees, setEmployees] = useState(data)
 	const [reverse, setReverse] = useState(true)
-	const [input, setInput] = useState('')
 
-	function checkWord(word) {
-		if (word.includes(input)) {
-			return
-		}
+	//1 je parcours la tableau avec les employés
+	//2 je boucle sur la length des catégoris (collumnName)
+	//3 si un valeur est égual à l'input, je push l'employé dans le new tableau
 
-	}
 
+	/**
+	 * Function to filter the employees array with the value from search input
+	 *
+	 * @param data object, with data from the user profil (dataAverageSessions)
+	 * @param img svg, about statistics
+	 * @param bgColor color, for the icon
+	 * @param category string, to know what extension return
+	 *
+	 * @return
+	 * @author Alexis.N
+	 * @version 1.0
+	 */
 	const handleChange = (e) => {
-		setInput(e.target.value)
-		setEmployees(employees.find(checkWord))
+		const newArray = [];
+		for (let i = 0; i < data.length; i++) {
+			let skipLoop = false
+			for (let x = 0; x < collumnName.length; x++) {
+				if (data[i][collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
+					newArray.push(data[i])
+					skipLoop = true
+				}
+				if (skipLoop) {
+					break
+				}
+			}
+		}
+		setEmployees(newArray)
 	}
 
+	// const handleChange = (e) => {
+	// 	setInput(e.target.value)
+	// 	setEmployees(employees.map((item) => {
+	//
+	// 		Object.keys(item).forEach(function (key, index) {
+	// 			if (item[key].toLowerCase().includes(e.target.value.toLowerCase())) {
+	// 				console.log(item[key])
+	//
+	// 			}
+	// 		});
+	//
+	// 		return item
+	// 	}))
+	// }
 
+	console.log(employees.length)
 	return (
 		<div className={'table'}>
 			<input onChange={(e) => handleChange(e)} type="search"/>
@@ -38,23 +74,15 @@ function Table({data}) {
 						>{item}</TableHead>)}
 				</tr>
 
-
-				{employees.map((item) =>
+				{employees.length > 0 && employees.map((item) =>
 					<tr key={data.indexOf(item)}>
 						{collumnName.map((i) => <TableData key={collumnName.indexOf(i)}>{item[i]}</TableData>)}
-						{/*<TableData>{item['First Name']}</TableData>*/}
-						{/*<TableData>{item['First Name']}</TableData>*/}
-						{/*<TableData>{item['Last Name']}</TableData>*/}
-						{/*<TableData>{item['Start Date']}</TableData>*/}
-						{/*<TableData>{item['Department']}</TableData>*/}
-						{/*<TableData>{item['Date of Birth']}</TableData>*/}
-						{/*<TableData>{item['Street']}</TableData>*/}
-						{/*<TableData>{item['City']}</TableData>*/}
-						{/*<TableData>{item['State']}</TableData>*/}
-						{/*<TableData>{item['Zip Code']}</TableData>*/}
 					</tr>)}
 				</tbody>
 			</table>
+			{employees.length === 0 &&
+				<div>{noDataMessage}</div>
+			}
 		</div>
 	);
 }

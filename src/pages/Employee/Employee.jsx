@@ -58,7 +58,7 @@ const Employee = () => {
 			type: 'string'
 		}
 	]
-
+	// console.log(employees)
 
 	return (
 		<div className="container">
@@ -68,25 +68,7 @@ const Employee = () => {
 			<h1>Current Employees</h1>
 			<table id="employee-table" className="display"></table>
 			<Link to={'/'}>Home</Link>
-			<Table data={employees}>
-				{/*<tr>*/}
-				{/*	{tableHead.map((item) =>*/}
-				{/*		<TableHead key={item.name} data={employeesSort} setData={setEmployeesSort} props={item.props}*/}
-				{/*							 type={item.type}>{item.name}</TableHead>)}*/}
-				{/*</tr>*/}
-
-				{/*{employeesSort.map((item) =>*/}
-				{/*	<tr key={employeesSort.indexOf(item)}>*/}
-				{/*		<TableData>{item.firstName}</TableData>*/}
-				{/*		<TableData>{item.lastName}</TableData>*/}
-				{/*		<TableData>{item.startDate}</TableData>*/}
-				{/*		<TableData>{item.department}</TableData>*/}
-				{/*		<TableData>{item.dateOfBirth}</TableData>*/}
-				{/*		<TableData>{item.street}</TableData>*/}
-				{/*		<TableData>{item.city}</TableData>*/}
-				{/*		<TableData>{item.state}</TableData>*/}
-				{/*		<TableData>{item.zipCode}</TableData>*/}
-				{/*	</tr>)}*/}
+			<Table data={employees} noDataMessage={"pas d'employés correspondant"}>
 			</Table>
 		</div>
 	);

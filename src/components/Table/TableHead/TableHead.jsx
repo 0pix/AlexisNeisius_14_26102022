@@ -7,6 +7,7 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 	// const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
 	const sortArrayString = () => {
+
 		let array = [...data]
 		setActive(props)
 
@@ -50,20 +51,26 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 		setData(array)
 	}
 
-	if (data[0][props].includes('/')) {
-		return (
-			<th className={reverse ? "reverseArray" : null}
-					onClick={() => sortArrayDate()}>{children} {active === props &&
-				<img src={chevron}
-						 alt={chevron}/>}
-			</th>);
-	} else {
-		return (
-			<th className={reverse ? "reverseArray" : null} onClick={sortArrayString}>{children} {active === props &&
-				<img src={chevron}
-						 alt={chevron}/>}</th>
-		);
+	if (data.length > 0) {
+		if (data[0][props].includes('/')) {
+			return (
+				<th className={reverse ? "reverseArray" : null}
+						onClick={() => sortArrayDate()}>{children} (date) {active === props &&
+					<img src={chevron}
+							 alt={chevron}/>}
+				</th>);
+		} else {
+			return (
+				<th className={reverse ? "reverseArray" : null} onClick={sortArrayString}>{children} {active === props &&
+					<img src={chevron}
+							 alt={chevron}/>}</th>
+			);
+		}
 	}
+	return (<th className={reverse ? "reverseArray" : null}
+	>{children}
+	</th>)
+
 
 }
 export default TableHead;
