@@ -11,6 +11,8 @@ function Table({data, noDataMessage}) {
 	const [active, setActive] = useState("")
 	const [employees, setEmployees] = useState(data)
 	const [reverse, setReverse] = useState(true)
+	const [sliceEnd, setSliceEnd] = useState()
+	const [sliceStart, setSliceStart] = useState(0)
 
 	//1 je parcours la tableau avec les employés
 	//2 je boucle sur la length des catégoris (collumnName)
@@ -20,12 +22,9 @@ function Table({data, noDataMessage}) {
 	/**
 	 * Function to filter the employees array with the value from search input
 	 *
-	 * @param data object, with data from the user profil (dataAverageSessions)
-	 * @param img svg, about statistics
-	 * @param bgColor color, for the icon
-	 * @param category string, to know what extension return
+	 * @param e
 	 *
-	 * @return
+	 * @return setEmployees(newArray)
 	 * @author Alexis.N
 	 * @version 1.0
 	 */
@@ -46,6 +45,7 @@ function Table({data, noDataMessage}) {
 		setEmployees(newArray)
 	}
 
+
 	// const handleChange = (e) => {
 	// 	setInput(e.target.value)
 	// 	setEmployees(employees.map((item) => {
@@ -61,9 +61,19 @@ function Table({data, noDataMessage}) {
 	// 	}))
 	// }
 
-	console.log(employees.length)
+	console.log(sliceEnd)
 	return (
 		<div className={'table'}>
+
+			<span>Show</span>
+			<select onChange={(e) => setSliceEnd(parseInt(e.target.value))} name="pets" id="pet-select">
+				<option value="1">1</option>
+				<option value="10">10</option>
+				<option value="25">25</option>
+				<option value="50">50</option>
+			</select>
+			<span>entries</span>
+
 			<input onChange={(e) => handleChange(e)} type="search"/>
 			<table>
 				<tbody>
@@ -74,7 +84,7 @@ function Table({data, noDataMessage}) {
 						>{item}</TableHead>)}
 				</tr>
 
-				{employees.length > 0 && employees.map((item) =>
+				{employees.length > 0 && employees.slice(sliceStart, sliceEnd).map((item) =>
 					<tr key={data.indexOf(item)}>
 						{collumnName.map((i) => <TableData key={collumnName.indexOf(i)}>{item[i]}</TableData>)}
 					</tr>)}
@@ -83,6 +93,21 @@ function Table({data, noDataMessage}) {
 			{employees.length === 0 &&
 				<div>{noDataMessage}</div>
 			}
+			<button onClick={() => setSliceEnd(2)}>page</button>
+			<div>
+				<div>
+					1
+				</div>
+				<div>
+					2
+				</div>
+				<div>
+					3
+				</div>
+				<div>
+					4
+				</div>
+			</div>
 		</div>
 	);
 }
