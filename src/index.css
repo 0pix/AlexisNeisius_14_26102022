@@ -25,30 +25,23 @@ code {
   monospace;
 }
 
-button {
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
+/*button {*/
+/*  outline: none;*/
+/*  border: none;*/
+/*  cursor: pointer;*/
+/*}*/
 
-input {
-  background-color: #e3e3e3;
-  max-width: 300px;
-  border: none;
-  outline: none;
-  height: 40px;
-  border-radius: 5px;
-  overflow: hidden;
-  padding: 5px;
-  font-size: 1.2em;
-}
-
-
-select {
-  background-color: #61dafb;
-  border: 1px solid red;
-  outline: none;
-}
+/*input {*/
+/*  background-color: #e3e3e3;*/
+/*  max-width: 300px;*/
+/*  border: none;*/
+/*  outline: none;*/
+/*  height: 40px;*/
+/*  border-radius: 5px;*/
+/*  overflow: hidden;*/
+/*  padding: 5px;*/
+/*  font-size: 1.2em;*/
+/*}*/
 
 
 /* ===== Scrollbar CSS ===== */

@@ -1,5 +1,5 @@
 import './Table.css'
-import React, {useContext, useReducer, useState} from 'react';
+import React, {useContext, useEffect, useReducer, useState} from 'react';
 import SearchContextProvider, {SearchContext} from "./Context/SearchContext";
 import TableHead from "./TableHead/TableHead";
 import tableHead from "./TableHead/TableHead";
@@ -11,8 +11,11 @@ function Table({data, noDataMessage}) {
 	const [active, setActive] = useState("")
 	const [employees, setEmployees] = useState(data)
 	const [reverse, setReverse] = useState(true)
-	const [sliceEnd, setSliceEnd] = useState()
+	const [employeeOnPage, setEmployeeOnPage] = useState(10)
+	// const [sliceEnd, setSliceEnd] = useState(employeeOnPage)
 	const [sliceStart, setSliceStart] = useState(0)
+	const [page, setPage] = useState([])
+	const [currentPage, setCurrentPage] = useState(1)
 
 	//1 je parcours la tableau avec les employés
 	//2 je boucle sur la length des catégoris (collumnName)
@@ -45,6 +48,41 @@ function Table({data, noDataMessage}) {
 		setEmployees(newArray)
 	}
 
+	const howManyPage = () => {
+		const page = []
+		const totalPage = Math.ceil(employees.length / employeeOnPage)
+		for (let i = 1; i <= totalPage; i++) {
+			page.push(i)
+		}
+		setPage(page)
+	}
+
+	const previousPage = () => {
+		setSliceStart(sliceStart - employeeOnPage)
+		setCurrentPage(currentPage - 1)
+	}
+	const nextPage = () => {
+		setSliceStart(sliceStart + employeeOnPage)
+		setCurrentPage(currentPage + 1)
+	}
+
+	const pagination = (currentPage) => {
+		if (currentPage === 1) {
+			setSliceStart(0)
+		} else {
+			const test = currentPage - 1
+
+			setSliceStart(employeeOnPage * test)
+		}
+		setCurrentPage(currentPage)
+	}
+
+	useEffect(() => {
+		howManyPage()
+	}, [employeeOnPage])
+
+	// useEffect(() => {
+	// }, [employeeOnPage])
 
 	// const handleChange = (e) => {
 	// 	setInput(e.target.value)
@@ -61,13 +99,10 @@ function Table({data, noDataMessage}) {
 	// 	}))
 	// }
 
-	console.log(sliceEnd)
 	return (
 		<div className={'table'}>
-
 			<span>Show</span>
-			<select onChange={(e) => setSliceEnd(parseInt(e.target.value))} name="pets" id="pet-select">
-				<option value="1">1</option>
+			<select onChange={(e) => setEmployeeOnPage(parseInt(e.target.value))} name="pets" id="pet-select">
 				<option value="10">10</option>
 				<option value="25">25</option>
 				<option value="50">50</option>
@@ -75,7 +110,7 @@ function Table({data, noDataMessage}) {
 			<span>entries</span>
 
 			<input onChange={(e) => handleChange(e)} type="search"/>
-			<table>
+			<table className={'tabler'}>
 				<tbody>
 				<tr className={'tablerHead '}>
 					{collumnName.map((item, index) =>
@@ -84,29 +119,31 @@ function Table({data, noDataMessage}) {
 						>{item}</TableHead>)}
 				</tr>
 
-				{employees.length > 0 && employees.slice(sliceStart, sliceEnd).map((item) =>
-					<tr key={data.indexOf(item)}>
-						{collumnName.map((i) => <TableData key={collumnName.indexOf(i)}>{item[i]}</TableData>)}
+				{employees.length > 0 && employees.slice(sliceStart, (sliceStart + employeeOnPage)).map((item, index) =>
+					<tr className={`${index % 2 === 0 ? 'tablePair' : 'tableUnPair'} tableData`} key={data.indexOf(item)}>
+						{collumnName.map((i) => <td
+							key={collumnName.indexOf(i)}>{item[i]}</td>)}
 					</tr>)}
 				</tbody>
 			</table>
+
 			{employees.length === 0 &&
 				<div>{noDataMessage}</div>
 			}
-			<button onClick={() => setSliceEnd(2)}>page</button>
-			<div>
-				<div>
-					1
-				</div>
-				<div>
-					2
-				</div>
-				<div>
-					3
-				</div>
-				<div>
-					4
-				</div>
+
+			<div className={'pagination'}>
+				<button onClick={previousPage}>previous</button>
+
+				{page.map((item) =>
+					<div className={`${currentPage === item ? 'pageBtnActive' : null} pageBtn`}
+							 onClick={() => pagination(item)}>
+						{item}
+					</div>
+				)}
+
+				<button onClick={nextPage}>next</button>
+
+
 			</div>
 		</div>
 	);
