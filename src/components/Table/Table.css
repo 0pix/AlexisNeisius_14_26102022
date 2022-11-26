@@ -10,6 +10,10 @@
 /*  font-size: 1.2em;*/
 /*}*/
 
+table {
+  outline: none;
+}
+
 
 .table {
   display: flex;
@@ -64,6 +68,7 @@
 .pagination {
   display: flex;
   margin-top: 30px;
+  align-items: center;
 }
 
 .pageBtn {
@@ -83,3 +88,31 @@
   background-color: #445699;
 }
 
+.showEntries {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+
+.tableEntriesInput {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.btnPage {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.btnPageLeft {
+  transform: rotate(180deg);
+}

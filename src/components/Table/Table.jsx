@@ -4,6 +4,7 @@ import SearchContextProvider, {SearchContext} from "./Context/SearchContext";
 import TableHead from "./TableHead/TableHead";
 import tableHead from "./TableHead/TableHead";
 import TableData from "./TableData/TableData";
+import arrowPage from '../../assets/svg/arrowPage.svg'
 
 function Table({data, noDataMessage}) {
 
@@ -31,22 +32,35 @@ function Table({data, noDataMessage}) {
 	 * @author Alexis.N
 	 * @version 1.0
 	 */
+		// const handleChange = (e) => {
+		// 	const newArray = [];
+		// 	for (let i = 0; i < data.length; i++) {
+		// 		for (let x = 0; x < collumnName.length; x++) {
+		// 			if (data[i][collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
+		// 				newArray.push(data[i])
+		// 				break
+		// 			}
+		//
+		// 		}
+		// 	}
+		// 	setEmployees(newArray)
+		// }
+
+		// console.log(collumnName)
+
 	const handleChange = (e) => {
-		const newArray = [];
-		for (let i = 0; i < data.length; i++) {
-			let skipLoop = false
-			for (let x = 0; x < collumnName.length; x++) {
-				if (data[i][collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
-					newArray.push(data[i])
-					skipLoop = true
+			const newArray = data.reduce((array, currentValue) => {
+				for (let x = 0; x < collumnName.length; x++) {
+					if (currentValue[collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
+						array.push(currentValue)
+						break
+					}
 				}
-				if (skipLoop) {
-					break
-				}
-			}
+				return array
+			}, [])
+			setEmployees(newArray)
 		}
-		setEmployees(newArray)
-	}
+
 
 	const howManyPage = () => {
 		const page = []
@@ -56,14 +70,32 @@ function Table({data, noDataMessage}) {
 		}
 		setPage(page)
 	}
+	console.log(sliceStart)
 
 	const previousPage = () => {
-		setSliceStart(sliceStart - employeeOnPage)
-		setCurrentPage(currentPage - 1)
+		console.log(`sliceStart : ${sliceStart}`, `page.length : ${page.length}`, `currentPage : ${currentPage}`)
+		if (currentPage === 1) {
+			setSliceStart((sliceStart + employeeOnPage) * (page.length - 1))
+			setCurrentPage(page.length)
+		} else {
+			setSliceStart(sliceStart - employeeOnPage)
+			setCurrentPage(currentPage - 1)
+		}
 	}
 	const nextPage = () => {
-		setSliceStart(sliceStart + employeeOnPage)
-		setCurrentPage(currentPage + 1)
+
+		console.log(`sliceStart : ${sliceStart}`, `page.length : ${page.length}`, `currentPage : ${currentPage}`)
+		if (currentPage === page.length) {
+			setSliceStart(0)
+			setCurrentPage(1)
+		} else {
+			setSliceStart(sliceStart + employeeOnPage)
+			setCurrentPage(currentPage + 1)
+		}
+
+
+		// setSliceStart(sliceStart + employeeOnPage)
+		// setCurrentPage(currentPage + 1)
 	}
 
 	const pagination = (currentPage) => {
@@ -79,7 +111,7 @@ function Table({data, noDataMessage}) {
 
 	useEffect(() => {
 		howManyPage()
-	}, [employeeOnPage])
+	}, [employeeOnPage, employees])
 
 	// useEffect(() => {
 	// }, [employeeOnPage])
@@ -101,17 +133,25 @@ function Table({data, noDataMessage}) {
 
 	return (
 		<div className={'table'}>
-			<span>Show</span>
-			<select onChange={(e) => setEmployeeOnPage(parseInt(e.target.value))} name="pets" id="pet-select">
-				<option value="10">10</option>
-				<option value="25">25</option>
-				<option value="50">50</option>
-			</select>
-			<span>entries</span>
 
-			<input onChange={(e) => handleChange(e)} type="search"/>
+			<div className={"tableEntriesInput"}>
+				<div className={'showEntries'}>
+					<span>Show</span>
+					<select onChange={(e) => setEmployeeOnPage(parseInt(e.target.value))} name="pets" id="pet-select">
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+					</select>
+					<span>entries</span>
+				</div>
+				<input onChange={(e) => handleChange(e)} type="search"/>
+			</div>
+
+
+			{/*tableau*/}
 			<table className={'tabler'}>
 				<tbody>
+				{/*catégorie*/}
 				<tr className={'tablerHead '}>
 					{collumnName.map((item, index) =>
 						<TableHead active={active} setActive={setActive} data={employees} setData={setEmployees}
@@ -132,7 +172,10 @@ function Table({data, noDataMessage}) {
 			}
 
 			<div className={'pagination'}>
-				<button onClick={previousPage}>previous</button>
+				<button style={{
+					backgroundImage: `url(${arrowPage})`
+				}} className={'btnPage btnPageLeft '} onClick={previousPage}>
+				</button>
 
 				{page.map((item) =>
 					<div className={`${currentPage === item ? 'pageBtnActive' : null} pageBtn`}
@@ -141,7 +184,10 @@ function Table({data, noDataMessage}) {
 					</div>
 				)}
 
-				<button onClick={nextPage}>next</button>
+				<button style={{
+					backgroundImage: `url(${arrowPage})`
+				}} className={'btnPage'} onClick={nextPage}>
+				</button>
 
 
 			</div>

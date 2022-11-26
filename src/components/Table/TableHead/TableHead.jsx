@@ -7,6 +7,7 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 	// const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
 	const sortArrayString = () => {
+		const re = /ab+c/;
 
 		let array = [...data]
 		setActive(props)
@@ -51,8 +52,10 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 		setData(array)
 	}
 
+
 	if (data.length > 0) {
-		if (data[0][props].includes('/')) {
+		const regExp = /^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/;
+		if (data[0][props].match(regExp)) {
 			return (
 				<th className={reverse ? "reverseArray" : null}
 						onClick={() => sortArrayDate()}>{children} (date) {active === props &&
