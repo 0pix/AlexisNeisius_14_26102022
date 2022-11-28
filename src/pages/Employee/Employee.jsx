@@ -9,7 +9,10 @@ import TableData from "../../components/Table/TableData/TableData";
 
 const Employee = () => {
 	// const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-	const employees = useSelector((state) => state.employees);
+	const employees = useSelector((state) => state.employees.employees);
+	console.log(employees)
+
+
 	const [employeesSort, setEmployeesSort] = useState(employees)
 	const tableHead = [
 		{

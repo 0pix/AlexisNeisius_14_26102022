@@ -6,6 +6,7 @@ import Modal from "../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import SelectDropDownnnn from "../../components/SelectDropDown/SelectDropDownnnn";
 import Calendar from "../../components/Calendar/Calendar";
+import {saveEmployee} from "../../features/employee/employeeSlice";
 
 const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -14,9 +15,7 @@ const Home = () => {
 	const department = useSelector((state) => state.department);
 	const dispatch = useDispatch();
 
-	const saveEmployee = (employee) => {
-		dispatch({type: "saveEmployee", employee: employee});
-	};
+	console.log('test: ', employees)
 
 	const functionCloseBtn = () => {
 		setOpenModal(false);
@@ -53,7 +52,7 @@ const Home = () => {
 			// alert('ouiiiiiiiiiiiiii ça part')
 			setOpenModal(true);
 			// console.log(employee)
-			saveEmployee(employee);
+			dispatch(saveEmployee(employee))
 			localStorage.setItem("employees", JSON.stringify(employees));
 			console.log(employees);
 		}

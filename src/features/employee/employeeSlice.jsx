@@ -1,4 +1,5 @@
-import {createStore} from "redux";
+import {createSlice} from '@reduxjs/toolkit'
+
 
 const states = [
 	{
@@ -238,25 +239,26 @@ const states = [
 		"abbreviation": "WY"
 	}
 ];
+const department = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]
 const statesName = states.map((e) => e.name)
 
-
-const department = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]
 const initialState = {
 	employees: JSON.parse(localStorage.getItem('employees')) || [],
 	states: statesName,
 	department: department
-};
+}
 
-const counterReducer = (state = initialState, action) => {
-	if (action.type === "saveEmployee") {
-		return {
-			...state,
-			...state.employees.push(action.employee)
-		};
-	}
+export const employeeSlice = createSlice({
+	name: 'counter',
+	initialState,
+	reducers: {
+		saveEmployee: (state, action) => {
+			state.employees.push(action.payload)
+		},
+	},
+})
 
-	return state;
-};
+// Action creators are generated for each case reducer function
+export const {saveEmployee} = employeeSlice.actions
 
-export const store = createStore(counterReducer);
+export default employeeSlice.reducer

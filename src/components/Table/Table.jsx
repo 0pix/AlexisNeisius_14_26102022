@@ -1,9 +1,6 @@
 import './Table.css'
-import React, {useContext, useEffect, useReducer, useState} from 'react';
-import SearchContextProvider, {SearchContext} from "./Context/SearchContext";
+import React, {useEffect, useState} from 'react';
 import TableHead from "./TableHead/TableHead";
-import tableHead from "./TableHead/TableHead";
-import TableData from "./TableData/TableData";
 import arrowPage from '../../assets/svg/arrowPage.svg'
 
 function Table({data, noDataMessage}) {
@@ -13,15 +10,10 @@ function Table({data, noDataMessage}) {
 	const [employees, setEmployees] = useState(data)
 	const [reverse, setReverse] = useState(true)
 	const [employeeOnPage, setEmployeeOnPage] = useState(10)
-	// const [sliceEnd, setSliceEnd] = useState(employeeOnPage)
+	const [input, setInput] = useState('')
 	const [sliceStart, setSliceStart] = useState(0)
 	const [page, setPage] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
-
-	//1 je parcours la tableau avec les employés
-	//2 je boucle sur la length des catégoris (collumnName)
-	//3 si un valeur est égual à l'input, je push l'employé dans le new tableau
-
 
 	/**
 	 * Function to filter the employees array with the value from search input
@@ -32,35 +24,20 @@ function Table({data, noDataMessage}) {
 	 * @author Alexis.N
 	 * @version 1.0
 	 */
-		// const handleChange = (e) => {
-		// 	const newArray = [];
-		// 	for (let i = 0; i < data.length; i++) {
-		// 		for (let x = 0; x < collumnName.length; x++) {
-		// 			if (data[i][collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
-		// 				newArray.push(data[i])
-		// 				break
-		// 			}
-		//
-		// 		}
-		// 	}
-		// 	setEmployees(newArray)
-		// }
-
-		// console.log(collumnName)
 
 	const handleChange = (e) => {
-			const newArray = data.reduce((array, currentValue) => {
-				for (let x = 0; x < collumnName.length; x++) {
-					if (currentValue[collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
-						array.push(currentValue)
-						break
-					}
+		const newArray = data.reduce((array, currentValue) => {
+			for (let x = 0; x < collumnName.length; x++) {
+				if (currentValue[collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
+					array.push(currentValue)
+					break
 				}
-				return array
-			}, [])
-			setEmployees(newArray)
-		}
-
+			}
+			return array
+		}, [])
+		setEmployees(newArray)
+		setInput(e.target.value.toLowerCase())
+	}
 
 	const howManyPage = () => {
 		const page = []
@@ -70,7 +47,6 @@ function Table({data, noDataMessage}) {
 		}
 		setPage(page)
 	}
-	console.log(sliceStart)
 
 	const previousPage = () => {
 		console.log(`sliceStart : ${sliceStart}`, `page.length : ${page.length}`, `currentPage : ${currentPage}`)
@@ -82,6 +58,7 @@ function Table({data, noDataMessage}) {
 			setCurrentPage(currentPage - 1)
 		}
 	}
+
 	const nextPage = () => {
 
 		console.log(`sliceStart : ${sliceStart}`, `page.length : ${page.length}`, `currentPage : ${currentPage}`)
@@ -92,10 +69,6 @@ function Table({data, noDataMessage}) {
 			setSliceStart(sliceStart + employeeOnPage)
 			setCurrentPage(currentPage + 1)
 		}
-
-
-		// setSliceStart(sliceStart + employeeOnPage)
-		// setCurrentPage(currentPage + 1)
 	}
 
 	const pagination = (currentPage) => {
@@ -111,25 +84,8 @@ function Table({data, noDataMessage}) {
 
 	useEffect(() => {
 		howManyPage()
-	}, [employeeOnPage, employees])
+	}, [employeeOnPage, employees, input])
 
-	// useEffect(() => {
-	// }, [employeeOnPage])
-
-	// const handleChange = (e) => {
-	// 	setInput(e.target.value)
-	// 	setEmployees(employees.map((item) => {
-	//
-	// 		Object.keys(item).forEach(function (key, index) {
-	// 			if (item[key].toLowerCase().includes(e.target.value.toLowerCase())) {
-	// 				console.log(item[key])
-	//
-	// 			}
-	// 		});
-	//
-	// 		return item
-	// 	}))
-	// }
 
 	return (
 		<div className={'table'}>
@@ -148,10 +104,10 @@ function Table({data, noDataMessage}) {
 			</div>
 
 
-			{/*tableau*/}
+			{/*table*/}
 			<table className={'tabler'}>
 				<tbody>
-				{/*catégorie*/}
+				{/*categorise*/}
 				<tr className={'tablerHead '}>
 					{collumnName.map((item, index) =>
 						<TableHead active={active} setActive={setActive} data={employees} setData={setEmployees}
@@ -172,10 +128,10 @@ function Table({data, noDataMessage}) {
 			}
 
 			<div className={'pagination'}>
-				<button style={{
+				{page.length >= 2 ? <button style={{
 					backgroundImage: `url(${arrowPage})`
 				}} className={'btnPage btnPageLeft '} onClick={previousPage}>
-				</button>
+				</button> : null}
 
 				{page.map((item) =>
 					<div className={`${currentPage === item ? 'pageBtnActive' : null} pageBtn`}
@@ -184,10 +140,10 @@ function Table({data, noDataMessage}) {
 					</div>
 				)}
 
-				<button style={{
+				{page.length >= 2 ? <button style={{
 					backgroundImage: `url(${arrowPage})`
 				}} className={'btnPage'} onClick={nextPage}>
-				</button>
+				</button> : null}
 
 
 			</div>

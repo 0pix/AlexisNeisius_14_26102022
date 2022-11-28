@@ -20,6 +20,12 @@ table {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 50%;
+  /*background-color: #445699;*/
+}
+
+.table tbody {
+  min-height: 200px;
 }
 
 .tabler {
@@ -115,4 +121,9 @@ table {
 
 .btnPageLeft {
   transform: rotate(180deg);
+}
+
+.table input {
+  border: none;
+  background-color: #e3e3e3;
 }
