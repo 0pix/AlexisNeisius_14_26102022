@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.test button {
+  border: none;
+}
+
 .calendarContainer {
   width: 100%;
   display: flex;

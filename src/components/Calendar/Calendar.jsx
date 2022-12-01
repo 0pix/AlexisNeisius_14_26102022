@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Calendar.css'
 import InputMonthCalendar from "./InputMonthCalendar";
 import InputYearCalendar from "./InputYearCalendar";

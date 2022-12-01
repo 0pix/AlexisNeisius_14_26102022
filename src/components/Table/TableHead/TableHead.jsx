@@ -1,14 +1,10 @@
-import React, {useState, useContext, useReducer} from 'react';
 import chevron from '../../../assets/svg/arrow-table.svg'
 
 
 const TableHead = ({children, data, setData, props, active, setActive, reverse, setReverse}) => {
 
-	// const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
 	const sortArrayString = () => {
-		const re = /ab+c/;
-
 		let array = [...data]
 		setActive(props)
 
@@ -58,7 +54,7 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 		if (data[0][props].match(regExp)) {
 			return (
 				<th className={reverse ? "reverseArray" : null}
-						onClick={() => sortArrayDate()}>{children} (date) {active === props &&
+						onClick={() => sortArrayDate()}>{children}{active === props &&
 					<img src={chevron}
 							 alt={chevron}/>}
 				</th>);

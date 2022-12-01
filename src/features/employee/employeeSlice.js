@@ -240,11 +240,10 @@ const states = [
 	}
 ];
 const department = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"]
-const statesName = states.map((e) => e.name)
 
 const initialState = {
 	employees: JSON.parse(localStorage.getItem('employees')) || [],
-	states: statesName,
+	states: states,
 	department: department
 }
 

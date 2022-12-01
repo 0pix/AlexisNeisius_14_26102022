@@ -5,7 +5,7 @@ import arrowPage from '../../assets/svg/arrowPage.svg'
 
 function Table({data, noDataMessage}) {
 
-	const collumnName = Object.keys(data.length ? data[0] : null)
+	const collumnName = data.length && Object.keys(data.length ? data[0] : null)
 	const [active, setActive] = useState("")
 	const [employees, setEmployees] = useState(data)
 	const [reverse, setReverse] = useState(true)
@@ -16,16 +16,17 @@ function Table({data, noDataMessage}) {
 	const [currentPage, setCurrentPage] = useState(1)
 
 	/**
-	 * Function to filter the employees array with the value from search input
+	 *
+	 * @description to filter the employees in the array with the value from search input
 	 *
 	 * @param e
 	 *
-	 * @return setEmployees(newArray)
-	 * @author Alexis.N
-	 * @version 1.0
+	 * @return void
 	 */
 
-	const handleChange = (e) => {
+	const searchEmployee = (e) => {
+		setSliceStart(0)
+		setCurrentPage(1)
 		const newArray = data.reduce((array, currentValue) => {
 			for (let x = 0; x < collumnName.length; x++) {
 				if (currentValue[collumnName[x]].toLowerCase().includes(e.target.value.toLowerCase())) {
@@ -39,6 +40,12 @@ function Table({data, noDataMessage}) {
 		setInput(e.target.value.toLowerCase())
 	}
 
+	/**
+	 * @description function to know how many page we need on the table
+	 *
+	 * @return void
+	 */
+
 	const howManyPage = () => {
 		const page = []
 		const totalPage = Math.ceil(employees.length / employeeOnPage)
@@ -47,6 +54,12 @@ function Table({data, noDataMessage}) {
 		}
 		setPage(page)
 	}
+
+	/**
+	 * @description function to display the previous page
+	 *
+	 * @return void
+	 */
 
 	const previousPage = () => {
 		console.log(`sliceStart : ${sliceStart}`, `page.length : ${page.length}`, `currentPage : ${currentPage}`)
@@ -59,9 +72,13 @@ function Table({data, noDataMessage}) {
 		}
 	}
 
-	const nextPage = () => {
+	/**
+	 * @description function to display the next page
+	 *
+	 * @return void
+	 */
 
-		console.log(`sliceStart : ${sliceStart}`, `page.length : ${page.length}`, `currentPage : ${currentPage}`)
+	const nextPage = () => {
 		if (currentPage === page.length) {
 			setSliceStart(0)
 			setCurrentPage(1)
@@ -71,7 +88,15 @@ function Table({data, noDataMessage}) {
 		}
 	}
 
-	const pagination = (currentPage) => {
+	/**
+	 * @description function to change page with click on btn page
+	 *
+	 * @param currentPage the current page number
+	 *
+	 * @return void
+	 */
+
+	const paginationHandle = (currentPage) => {
 		if (currentPage === 1) {
 			setSliceStart(0)
 		} else {
@@ -87,10 +112,15 @@ function Table({data, noDataMessage}) {
 	}, [employeeOnPage, employees, input])
 
 
+	if (!data.length) {
+		return <div>c'est vide</div>
+	}
+
 	return (
 		<div className={'table'}>
 
 			<div className={"tableEntriesInput"}>
+				{/*select how many employee in the table*/}
 				<div className={'showEntries'}>
 					<span>Show</span>
 					<select onChange={(e) => setEmployeeOnPage(parseInt(e.target.value))} name="pets" id="pet-select">
@@ -100,52 +130,52 @@ function Table({data, noDataMessage}) {
 					</select>
 					<span>entries</span>
 				</div>
-				<input onChange={(e) => handleChange(e)} type="search"/>
+				{/*search bar*/}
+				<input onChange={(e) => searchEmployee(e)} type="search"/>
 			</div>
-
 
 			{/*table*/}
 			<table className={'tabler'}>
 				<tbody>
-				{/*categorise*/}
+				{/*categorise header*/}
 				<tr className={'tablerHead '}>
 					{collumnName.map((item, index) =>
 						<TableHead active={active} setActive={setActive} data={employees} setData={setEmployees}
 											 key={`${item}-${index}`} props={item} reverse={reverse} setReverse={setReverse}
 						>{item}</TableHead>)}
 				</tr>
-
+				{/*employees in the tabler*/}
 				{employees.length > 0 && employees.slice(sliceStart, (sliceStart + employeeOnPage)).map((item, index) =>
-					<tr className={`${index % 2 === 0 ? 'tablePair' : 'tableUnPair'} tableData`} key={data.indexOf(item)}>
+					<tr className={`${index % 2 === 0 ? 'tablePair' : 'tableUnPair'} tableData swing-in-top-fwd `}
+							key={data.indexOf(item)}>
 						{collumnName.map((i) => <td
 							key={collumnName.indexOf(i)}>{item[i]}</td>)}
 					</tr>)}
 				</tbody>
 			</table>
-
+			{/*message when no employees*/}
 			{employees.length === 0 &&
 				<div>{noDataMessage}</div>
 			}
-
+			{/*pagination btn*/}
 			<div className={'pagination'}>
+				{/*previous btn*/}
 				{page.length >= 2 ? <button style={{
 					backgroundImage: `url(${arrowPage})`
 				}} className={'btnPage btnPageLeft '} onClick={previousPage}>
 				</button> : null}
-
+				{/*all pages as a btn*/}
 				{page.map((item) =>
 					<div className={`${currentPage === item ? 'pageBtnActive' : null} pageBtn`}
-							 onClick={() => pagination(item)}>
+							 onClick={() => paginationHandle(item)}>
 						{item}
 					</div>
 				)}
-
+				{/*next btn*/}
 				{page.length >= 2 ? <button style={{
 					backgroundImage: `url(${arrowPage})`
 				}} className={'btnPage'} onClick={nextPage}>
 				</button> : null}
-
-
 			</div>
 		</div>
 	);
@@ -154,26 +184,4 @@ function Table({data, noDataMessage}) {
 export default Table;
 
 
-// <tr>
-// 	<th onClick={() => sortArrayString(data, 'firstName')}>First Name</th>
-// 	<th onClick={() => sortArrayString(data, 'lastName')}>Last Name</th>
-// 	<th onClick={() => sortArrayDate(data, 'startDate')}>Start Date</th>
-// 	<th onClick={() => sortArrayDate(data, 'department')}>Department</th>
-// 	<th onClick={() => sortArrayDate(data, 'dateOfBirth')}>Date of Birth</th>
-// 	<th>Street</th>
-// 	<th>City</th>
-// 	<th>State</th>
-// 	<th>Zip Code</th>
-// </tr>
-// {data.map((item) =>
-// 	<tr key={data.indexOf(item)}>
-// 		<td>{item.firstName}</td>
-// 		<td>{item.lastName}</td>
-// 		<td>{item.startDate}</td>
-// 		<td>{item.department}</td>
-// 		<td>{item.dateOfBirth}</td>
-// 		<td>{item.street}</td>
-// 		<td>{item.city}</td>
-// 		<td>{item.state}</td>
-// 		<td>{item.zipCode}</td>
-// 	</tr>)}
+//TODO: faire le responsive du tableau

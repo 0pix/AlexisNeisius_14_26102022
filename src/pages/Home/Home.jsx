@@ -1,25 +1,27 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./Home.css";
 import {Link} from "react-router-dom";
-import {Helmet} from "react-helmet";
 import Modal from "../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
-import SelectDropDownnnn from "../../components/SelectDropDown/SelectDropDownnnn";
+import SelectDropDown from "../../components/SelectDropDown/SelectDropDown";
 import Calendar from "../../components/Calendar/Calendar";
 import {saveEmployee} from "../../features/employee/employeeSlice";
 
 const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
-	const employees = useSelector((state) => state.employees);
-	const states = useSelector((state) => state.states);
-	const department = useSelector((state) => state.department);
+	const employees = useSelector((state) => state.employees.employees);
+	const states = useSelector((state) => state.employees.states);
+	const department = useSelector((state) => state.employees.department);
 	const dispatch = useDispatch();
 
-	console.log('test: ', employees)
 
 	const functionCloseBtn = () => {
 		setOpenModal(false);
 	};
+
+	useEffect(() => {
+		document.title = 'HRnet | Home';
+	}, []);
 
 	const handlerSubmit = (e) => {
 		e.preventDefault();
@@ -34,7 +36,6 @@ const Home = () => {
 			'State': e.target[7].value || "",
 			'Zip Code': e.target[8].value || "",
 		};
-		// console.log(e)
 		if (
 			employee['First Name'] === "" ||
 			employee['Last Name'] === "" ||
@@ -53,16 +54,16 @@ const Home = () => {
 			setOpenModal(true);
 			// console.log(employee)
 			dispatch(saveEmployee(employee))
-			localStorage.setItem("employees", JSON.stringify(employees));
-			console.log(employees);
+
 		}
 	};
+
+	useEffect(() => {
+		localStorage.setItem("employees", JSON.stringify(employees));
+	}, [employees])
+	console.log('test: ', employees)
 	return (
 		<div className={"home"}>
-			{/*<Test></Test>*/}
-			<Helmet>
-				<title>HRnet | Home</title>
-			</Helmet>
 			<Modal
 				openModal={openModal}
 				setOpenModal={setOpenModal}
@@ -87,8 +88,6 @@ const Home = () => {
 					<label htmlFor="last-name">Last Name</label>
 					<input type="text" id="last-name"/>
 
-					{/*<label htmlFor="date-of-birth">Date of Birth</label>*/}
-					{/*<input id="date-of-birth" type="text"/>*/}
 					<Calendar
 						language={"fr-FR"}
 						label={"Date of Birth"}
@@ -101,9 +100,6 @@ const Home = () => {
 						htmlFor={"start-date"}
 					/>
 
-					{/*<label htmlFor="start-date">Start Date</label>*/}
-					{/*<input id="start-date" type="text"/>*/}
-
 					<fieldset className="address">
 						<legend>Address</legend>
 
@@ -113,7 +109,7 @@ const Home = () => {
 						<label htmlFor="city">City</label>
 						<input id="city" type="text"/>
 
-						<SelectDropDownnnn
+						<SelectDropDown
 							data={states}
 							htmlFor={"state"}
 							label={"State"}
@@ -122,7 +118,7 @@ const Home = () => {
 						<label htmlFor="zip-code">Zip Code</label>
 						<input id="zip-code" type="number"/>
 					</fieldset>
-					<SelectDropDownnnn
+					<SelectDropDown
 						data={department}
 						htmlFor={"department"}
 						label={"Department"}
