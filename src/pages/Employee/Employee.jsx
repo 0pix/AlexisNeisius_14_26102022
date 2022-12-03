@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import Table from "../../components/Table/Table";
 import {useSelector} from "react-redux";
+import './Employee.css'
 
 
 const Employee = () => {
@@ -13,13 +14,15 @@ const Employee = () => {
 	}, []);
 
 	return (
-		<div className="container">
-			<h1>Current Employees</h1>
-			<table id="employee-table" className="display"></table>
-			<Link to={'/'}>Home</Link>
-			<Table data={employees} noDataMessage={"pas d'employés correspondant"}>
-			</Table>
+		<div className={'employees-Page'}>
+			<div className="containerEmployee page-right">
+				<h2>Current Employees</h2>
+				<table id="employee-table" className="display"></table>
+				<Table data={employees} noDataMessage={"pas d'employés correspondant"}>
+				</Table>
+			</div>
 		</div>
+
 	);
 };
 

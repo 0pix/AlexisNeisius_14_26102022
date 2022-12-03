@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./Home.css";
-import {Link} from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import SelectDropDown from "../../components/SelectDropDown/SelectDropDown";
 import Calendar from "../../components/Calendar/Calendar";
-import {saveEmployee} from "../../features/employee/employeeSlice";
+import {saveEmployee} from "../../store/employee/employeeSlice";
+import {Link} from "react-router-dom";
 
 const Home = () => {
 	const [openModal, setOpenModal] = useState(false);
@@ -63,7 +63,7 @@ const Home = () => {
 	}, [employees])
 	console.log('test: ', employees)
 	return (
-		<div className={"home"}>
+		<div className={"home page-left"}>
 			<Modal
 				openModal={openModal}
 				setOpenModal={setOpenModal}
@@ -71,11 +71,7 @@ const Home = () => {
 			>
 				Employé enregistré
 			</Modal>
-			<div className="title">
-				<h1>HRnet</h1>
-			</div>
 			<div className="container">
-				<Link to={"/Employee"}>View Current Employees</Link>
 				<h2>Create Employee</h2>
 				<form
 					onSubmit={(e) => handlerSubmit(e)}
@@ -126,6 +122,7 @@ const Home = () => {
 					<div className={"containerBtn"}>
 						<button style={{margin: "auto"}}>Save</button>
 					</div>
+					<Link to={"/Employee"}> see employees</Link>
 				</form>
 			</div>
 		</div>

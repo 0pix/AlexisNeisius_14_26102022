@@ -19,6 +19,7 @@ const Calendar = ({language, label, htmlFor}) => {
 	const previousDays = getPreviousDay()
 	const allDays = allDay()
 	const nextDays = getNextDay()
+	const [dateInput, setDateInput] = useState(false)
 
 	function getDaysInMonth(year, month) {
 		return new Date(year, month, 0).getDate();
@@ -85,9 +86,14 @@ const Calendar = ({language, label, htmlFor}) => {
 			monthInput = `0${month}`
 		}
 
-		if (openCalendar === true) {
+		if (openCalendar && dateInput) {
 			return `${dayInput}/${monthInput}/${year}`
 		}
+	}
+
+	function dayHandler(day) {
+		setDay(day)
+		setDateInput(true)
 	}
 
 //******************************* Functions Buttons  *******************************//
@@ -135,7 +141,7 @@ const Calendar = ({language, label, htmlFor}) => {
 						{days.map((el) => <div className={'days'}>{el.slice('.')}</div>)}
 						{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
 						{allDays.map((el) => <div className={el === day ? 'today' : 'allDays'}
-																			onClick={(e) => setDay(parseInt(e.target.innerHTML))}
+																			onClick={(e) => dayHandler(parseInt(e.target.innerHTML))}
 						>{el}</div>)}
 						{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
 					</div>

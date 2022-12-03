@@ -144,7 +144,7 @@ function Table({data, noDataMessage}) {
 											 key={`${item}-${index}`} props={item} reverse={reverse} setReverse={setReverse}
 						>{item}</TableHead>)}
 				</tr>
-				{/*employees in the tabler*/}
+				{/*employees in the table*/}
 				{employees.length > 0 && employees.slice(sliceStart, (sliceStart + employeeOnPage)).map((item, index) =>
 					<tr className={`${index % 2 === 0 ? 'tablePair' : 'tableUnPair'} tableData swing-in-top-fwd `}
 							key={data.indexOf(item)}>

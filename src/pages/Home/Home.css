@@ -7,6 +7,21 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: rgba(17, 12, 46, 0.15) 0 48px 100px 0;
+  padding: 30px;
+  margin: calc(56px + 50px) 0 50px 0;
+  border-radius: 10px;
+}
+
+.container h2 {
+  margin-bottom: 5px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -36,6 +51,7 @@
   align-items: center;
   width: 100%;
   margin-top: 20px;
+
 }
 
 .containerBtn button {
@@ -65,5 +81,4 @@
 
 .home form input, .home label, .home fieldset label, .home fieldset input, .home form label, .home form input {
   width: 100%;
-  max-width: 300px;
 }
