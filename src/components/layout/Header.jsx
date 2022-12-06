@@ -15,7 +15,7 @@ const Header = () => {
 			<h1>HRnet</h1>
 			<nav>
 				<ul>
-					<NavLink style={navLinkStyles} to={"home"}>Home</NavLink>
+					<NavLink style={navLinkStyles} to={"/"} end>Home</NavLink>
 					<NavLink style={navLinkStyles} to={"employee"}>Employees</NavLink>
 				</ul>
 			</nav>

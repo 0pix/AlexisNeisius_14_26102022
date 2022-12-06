@@ -78,8 +78,9 @@ const Home = () => {
 					action="#"
 					id="create-employee"
 				>
-					<label htmlFor="first-name">First Name</label>
-					<input type="text" id="first-name"/>
+					<label htmlFor="first-name">First Name
+						<input type="text" id="first-name"/>
+					</label>
 
 					<label htmlFor="last-name">Last Name</label>
 					<input type="text" id="last-name"/>

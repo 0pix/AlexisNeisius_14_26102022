@@ -123,30 +123,33 @@ const Calendar = ({language, label, htmlFor}) => {
 	return (<div className={'test'}>
 			{openCalendar && <div onClick={() => setOpenCalendar(!openCalendar)} className={'backgroundCalendar'}></div>}
 			<div className={'calendarContainer'}>
-				<label htmlFor={htmlFor}>{label}</label>
-				<input onClick={() => setOpenCalendar(!openCalendar)} autoComplete={"chrome-off"}
-							 className={'stateInput'} type="text" id="state" value={dateToInput()}/>
-				{openCalendar && <div className={'calendar'}>
-					<div className={'titleDate'}>
-						<button className={'titleDateBtn'}
-										onClick={previousMonth} type={"button"}>-
-						</button>
-						<InputMonthCalendar data={month} setData={setMonth} language={language}/>
-						<button className={'titleDateBtn'}
-										onClick={nextMonth} type={"button"}>+
-						</button>
-						<InputYearCalendar data={year} setData={setYear} minValue={1920} maxValue={currentYear}/>
-					</div>
-					<div className={'parent'}>
-						{days.map((el) => <div className={'days'}>{el.slice('.')}</div>)}
-						{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
-						{allDays.map((el) => <div className={el === day ? 'today' : 'allDays'}
-																			onClick={(e) => dayHandler(parseInt(e.target.innerHTML))}
-						>{el}</div>)}
-						{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
-					</div>
-					<button type={"button"} className={'todayBtn'} onClick={today}>today</button>
-				</div>}
+				<label htmlFor={htmlFor}>{label}
+					<input data-testid={htmlFor} onClick={() => setOpenCalendar(!openCalendar)} autoComplete={"chrome-off"}
+								 className={'stateInput'} type="text" id="state" value={dateToInput()}/>
+					{openCalendar && <div className={'calendar'}>
+						<div className={'titleDate'}>
+							<button className={'titleDateBtn'}
+											onClick={previousMonth} type={"button"}>-
+							</button>
+							<InputMonthCalendar data={month} setData={setMonth} language={language}/>
+							<button className={'titleDateBtn'}
+											onClick={nextMonth} type={"button"}>+
+							</button>
+							<InputYearCalendar data={year} setData={setYear} minValue={1920} maxValue={currentYear}/>
+						</div>
+						<div className={'parent'}>
+							{days.map((el) => <div className={'days'}>{el.slice('.')}</div>)}
+							{previousDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
+							{allDays.map((el) => <div data-testid={el === day ? "today" : null}
+																				className={el === day ? 'today' : 'allDays'}
+																				onClick={(e) => dayHandler(parseInt(e.target.innerHTML))}
+							>{el}</div>)}
+							{nextDays.map((el) => <div className={'previousNextDays'}>{el}</div>)}
+						</div>
+						<button type={"button"} className={'todayBtn'} onClick={today}>today</button>
+					</div>}
+				</label>
+
 			</div>
 		</div>
 
