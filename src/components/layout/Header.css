@@ -1,13 +1,12 @@
 .header {
   color: white;
-  background-color: #223069;
-  margin-bottom: 30px;
+  background-color: rgb(34, 48, 105);
   padding: 8px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  position: absolute;
+  position: sticky;
   top: 0;
   z-index: 4000;
 }

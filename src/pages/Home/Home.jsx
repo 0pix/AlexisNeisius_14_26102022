@@ -16,6 +16,7 @@ const Home = () => {
 
 
 	const functionCloseBtn = () => {
+		alert("coucou")
 		setOpenModal(false);
 	};
 
@@ -63,7 +64,7 @@ const Home = () => {
 	}, [employees])
 	console.log('test: ', employees)
 	return (
-		<div className={"home page-left"}>
+		<div className={'homeTest'}>
 			<Modal
 				openModal={openModal}
 				setOpenModal={setOpenModal}
@@ -71,62 +72,66 @@ const Home = () => {
 			>
 				Employé enregistré
 			</Modal>
-			<div className="container">
-				<h2>Create Employee</h2>
-				<form
-					onSubmit={(e) => handlerSubmit(e)}
-					action="#"
-					id="create-employee"
-				>
-					<label htmlFor="first-name">First Name
-						<input type="text" id="first-name"/>
-					</label>
+			<div className={"home page-left"}>
+				<div className="container">
+					<h2>Create Employee</h2>
+					<form
+						onSubmit={(e) => handlerSubmit(e)}
+						action="#"
+						id="create-employee"
+					>
+						<label htmlFor="first-name">First Name
+							<input type="text" id="first-name"/>
+						</label>
 
-					<label htmlFor="last-name">Last Name</label>
-					<input type="text" id="last-name"/>
+						<label htmlFor="last-name">Last Name
+							<input type="text" id="last-name"/>
+						</label>
 
-					<Calendar
-						language={"fr-FR"}
-						label={"Date of Birth"}
-						htmlFor={"start-date"}
-					/>
-
-					<Calendar
-						language={"en-US"}
-						label={"Start Date"}
-						htmlFor={"start-date"}
-					/>
-
-					<fieldset className="address">
-						<legend>Address</legend>
-
-						<label htmlFor="street">Street</label>
-						<input id="street" type="text"/>
-
-						<label htmlFor="city">City</label>
-						<input id="city" type="text"/>
-
-						<SelectDropDown
-							data={states}
-							htmlFor={"state"}
-							label={"State"}
+						<Calendar
+							language={"fr-FR"}
+							label={"Date of Birth"}
+							htmlFor={"start-date"}
 						/>
 
-						<label htmlFor="zip-code">Zip Code</label>
-						<input id="zip-code" type="number"/>
-					</fieldset>
-					<SelectDropDown
-						data={department}
-						htmlFor={"department"}
-						label={"Department"}
-					/>
-					<div className={"containerBtn"}>
-						<button style={{margin: "auto"}}>Save</button>
-					</div>
-					<Link to={"/Employee"}> see employees</Link>
-				</form>
+						<Calendar
+							language={"en-US"}
+							label={"Start Date"}
+							htmlFor={"start-date"}
+						/>
+
+						<fieldset className="address">
+							<legend>Address</legend>
+
+							<label htmlFor="street">Street</label>
+							<input id="street" type="text"/>
+
+							<label htmlFor="city">City</label>
+							<input id="city" type="text"/>
+
+							<SelectDropDown
+								data={states}
+								htmlFor={"state"}
+								label={"State"}
+							/>
+
+							<label htmlFor="zip-code">Zip Code</label>
+							<input id="zip-code" type="number"/>
+						</fieldset>
+						<SelectDropDown
+							data={department}
+							htmlFor={"department"}
+							label={"Department"}
+						/>
+						<div className={"containerBtn"}>
+							<button style={{margin: "auto"}}>Save</button>
+						</div>
+						<Link to={"/Employee"}> see employees</Link>
+					</form>
+				</div>
 			</div>
 		</div>
+
 	);
 };
 

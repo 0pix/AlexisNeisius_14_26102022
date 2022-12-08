@@ -17,9 +17,9 @@ const SelectDropDown = ({data, htmlFor, label}) => {
 		// }
 		if (typeof state === "object") {
 			const key = Object.keys(state)
-			return <li className={'pute'} onClick={(e) => handleClick(e, state[key[1]])}>{state.name}</li>
+			return <li className={'toto'} onClick={(e) => handleClick(e, state[key[1]])}>{state.name}</li>
 		}
-		return <li className={'pute'} onClick={(e) => handleClick(e, state)}>{state}</li>
+		return <li className={'toto'} onClick={(e) => handleClick(e, state)}>{state}</li>
 	}
 
 	return (
