@@ -7,19 +7,30 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   box-shadow: rgba(17, 12, 46, 0.15) 0 48px 100px 0;
   padding: 30px;
   margin: 50px 0 50px 0;
   border-radius: 10px;
+  text-align: left;
+}
+
+.container form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .container h2 {
+  width: 100%;
   margin-bottom: 5px;
 }
 
 .home {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,11 +38,11 @@
   width: 100%;
 }
 
-
 .home input {
+  width: 100%;
   display: block;
   margin: 10px 0;
-  background-color: #e3e3e3;
+  background-color: #eff3ff;
   border: none;
   outline: none;
   height: 40px;
@@ -40,11 +51,6 @@
   padding: 5px;
   font-size: 1.2em;
 }
-
-.home label {
-  max-width: 300px;
-}
-
 
 .containerBtn {
   display: flex;
@@ -61,15 +67,20 @@
   border-radius: 5px;
   font-size: 1.2em;
   color: white;
+  border: none;
 }
 
 .home fieldset {
-  background-color: #f1f1f1;
-  /*border: 1px solid #223069;*/
-  border: none;
-  width: 320px;
-  padding: 10px;
-  margin-bottom: 10px;
+  /*background-color: rgb(209, 213, 255);*/
+  border: 3px dashed #eff3ff;
+  border-radius: 10px;
+  /*width: 320px;*/
+  width: 100%;
+  /*margin-bottom: 10px;*/
+}
+
+.home fieldset input {
+  /*background: gray;*/
 }
 
 

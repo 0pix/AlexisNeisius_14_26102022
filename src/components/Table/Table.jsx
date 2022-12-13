@@ -117,7 +117,7 @@ function Table({data, noDataMessage}) {
 	}
 
 	return (
-		<div className={'table'}>
+		<div data-testid={"table"} className={'table'}>
 
 			<div className={"tableEntriesInput"}>
 				{/*select how many employee in the table*/}
@@ -131,7 +131,7 @@ function Table({data, noDataMessage}) {
 					<span>entries</span>
 				</div>
 				{/*search bar*/}
-				<input onChange={(e) => searchEmployee(e)} type="search"/>
+				<input data-testid={"inputTable"} placeholder={"Search"} onChange={(e) => searchEmployee(e)} type="search"/>
 			</div>
 
 			{/*table*/}

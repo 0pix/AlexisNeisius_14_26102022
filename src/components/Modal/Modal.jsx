@@ -1,6 +1,6 @@
-// import React, {useState} from 'react';
+import React from 'react';
 import "./Modal.css";
-import cross from "../../assets/svg/cross.svg"
+import cross from "./assets/svg/cross.svg"
 
 const Modal = ({children, openModal, setOpenModal, functionCloseBtn}) => {
 	if (openModal) {
@@ -8,7 +8,7 @@ const Modal = ({children, openModal, setOpenModal, functionCloseBtn}) => {
 			<div onClick={() => setOpenModal(false)} data-testid={"backgroundModal"} className={"backgroundModal"}>
 				<div data-testid={"modal"} className={"modal"}>
 					<button
-						onClick={() => functionCloseBtn}
+						onClick={functionCloseBtn}
 						className={"closeModalBtn"}
 						data-testid={"closeModalBtn"}
 					>
@@ -20,6 +20,4 @@ const Modal = ({children, openModal, setOpenModal, functionCloseBtn}) => {
 		)
 	}
 }
-
-
 export default Modal;

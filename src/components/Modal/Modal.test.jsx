@@ -3,19 +3,27 @@ import {fireEvent, render} from "@testing-library/react";
 import {screen} from "@testing-library/react";
 import '@testing-library/jest-dom'
 
-test('scénario d\'exemple', function () {
-	const functionModal = () => {
-		alert("on ferme la modal")
-	}
-	render(<Modal openModal={true} functionCloseBtn={functionModal}>
+
+test('Open modal', function () {
+	render(<Modal openModal={true}>
 		coucou les loulous
 	</Modal>)
-	const text = screen.getByTestId("modal")
+	const modal = screen.getByTestId("modal")
 	const background = screen.getByTestId("backgroundModal")
-	const closeBtn = screen.getByTestId("closeModalBtn")
-	expect(text).toBeInTheDocument()
-	expect(text).toHaveTextContent("coucou les loulous")
+	expect(modal).toHaveTextContent("coucou les loulous")
 	expect(background).toBeInTheDocument()
-	// fireEvent.click(closeBtn)
+})
+
+test('Close modal', function () {
+
+	const handleClick = jest.fn()
+
+	render(<Modal openModal={true} setOpenModal={() => {
+	}}
+								functionCloseBtn={handleClick}/>)
+	const closeBtn = screen.queryByTestId("closeModalBtn")
+
+	fireEvent.click(closeBtn)
+	expect(handleClick).toHaveBeenCalled()
 
 })

@@ -16,7 +16,6 @@ const Home = () => {
 
 
 	const functionCloseBtn = () => {
-		alert("coucou")
 		setOpenModal(false);
 	};
 
@@ -30,12 +29,12 @@ const Home = () => {
 			'First Name': e.target[0].value || "",
 			'Last Name': e.target[1].value || "",
 			'Start Date': e.target[3].value || "",
-			'Department': e.target[9].value || "",
+			'Department': e.target[8].value || "",
 			'Date of Birth': e.target[2].value || "",
-			'Street': e.target[5].value || "",
-			'City': e.target[6].value || "",
-			'State': e.target[7].value || "",
-			'Zip Code': e.target[8].value || "",
+			'Street': e.target[4].value || "",
+			'City': e.target[5].value || "",
+			'State': e.target[6].value || "",
+			'Zip Code': e.target[7].value || "",
 		};
 		if (
 			employee['First Name'] === "" ||
@@ -55,7 +54,6 @@ const Home = () => {
 			setOpenModal(true);
 			// console.log(employee)
 			dispatch(saveEmployee(employee))
-
 		}
 	};
 
@@ -63,8 +61,10 @@ const Home = () => {
 		localStorage.setItem("employees", JSON.stringify(employees));
 	}, [employees])
 	console.log('test: ', employees)
+
+
 	return (
-		<div className={'homeTest'}>
+		<div className={'home'}>
 			<Modal
 				openModal={openModal}
 				setOpenModal={setOpenModal}
@@ -72,14 +72,14 @@ const Home = () => {
 			>
 				Employé enregistré
 			</Modal>
-			<div className={"home page-left"}>
+			<div className={"page-left"}>
 				<div className="container">
-					<h2>Create Employee</h2>
 					<form
 						onSubmit={(e) => handlerSubmit(e)}
 						action="#"
 						id="create-employee"
 					>
+						<h2>Create Employee</h2>
 						<label htmlFor="first-name">First Name
 							<input type="text" id="first-name"/>
 						</label>
@@ -100,24 +100,24 @@ const Home = () => {
 							htmlFor={"start-date"}
 						/>
 
-						<fieldset className="address">
-							<legend>Address</legend>
-
-							<label htmlFor="street">Street</label>
+						<label htmlFor="street">Street
 							<input id="street" type="text"/>
+						</label>
 
-							<label htmlFor="city">City</label>
+						<label htmlFor="city">City
 							<input id="city" type="text"/>
+						</label>
 
-							<SelectDropDown
-								data={states}
-								htmlFor={"state"}
-								label={"State"}
-							/>
+						<SelectDropDown
+							data={states}
+							htmlFor={"states"}
+							label={"State"}
+						/>
 
-							<label htmlFor="zip-code">Zip Code</label>
+						<label htmlFor="zip-code">Zip Code
 							<input id="zip-code" type="number"/>
-						</fieldset>
+						</label>
+
 						<SelectDropDown
 							data={department}
 							htmlFor={"department"}
@@ -134,5 +134,4 @@ const Home = () => {
 
 	);
 };
-
 export default Home;

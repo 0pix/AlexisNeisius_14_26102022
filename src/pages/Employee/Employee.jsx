@@ -13,6 +13,8 @@ const Employee = () => {
 		document.title = 'HRnet | Employee';
 	}, []);
 
+	console.log(employees)
+
 	return (
 		<div className={'employees-Page'}>
 			<div className="containerEmployee page-right">

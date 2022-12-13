@@ -41,13 +41,15 @@
 
 .selectDropDown ul {
   position: absolute;
-  background-color: rgb(215, 215, 215);
+  /*background-color: rgb(215, 215, 215);*/
+  background-color: rgb(239, 243, 255);
   width: 100%;
   top: 38px;
   z-index: 1;
   overflow-y: scroll;
   max-height: 300px;
   border-bottom: 3px #223069 solid;
+  border-radius: 0 0 10px 10px;
 }
 
 .selectDropDown li {
