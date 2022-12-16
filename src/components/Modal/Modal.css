@@ -6,8 +6,7 @@
   left: 50%;
   z-index: 800;
   height: 100vh;
-  /*background-color: rgba(34, 48, 104, 0.63);*/
-  background-color: rgb(194, 38, 238);
+  background-color: #223069b2;
   display: flex;
   justify-content: center;
   align-items: center;

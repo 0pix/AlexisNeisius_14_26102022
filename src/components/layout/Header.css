@@ -1,6 +1,6 @@
 .header {
   color: white;
-  background-color: rgb(34, 48, 105);
+  background-color: #223069;
   padding: 8px 20px;
   display: flex;
   align-items: center;
@@ -14,9 +14,7 @@
 .header a {
   color: white;
   margin-left: 30px;
-
 }
-
 
 /*.header a.active {*/
 /*  border-bottom: 3px solid red;*/

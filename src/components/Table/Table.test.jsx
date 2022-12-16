@@ -55,8 +55,79 @@ const data = [
 		"City": "paris",
 		"State": "AL",
 		"Zip Code": "10000"
-	}
+	},
+	{
+		"First Name": "Jordan",
+		"Last Name": "Zozo",
+		"Start Date": "01/11/2022",
+		"Department": "Engineering",
+		"Date of Birth": "22/02/1996",
+		"Street": "1 rue de la fête",
+		"City": "paris",
+		"State": "AL",
+		"Zip Code": "10000"
+	},{
+		"First Name": "Jordan",
+		"Last Name": "Zozo",
+		"Start Date": "01/11/2022",
+		"Department": "Engineering",
+		"Date of Birth": "22/02/1996",
+		"Street": "1 rue de la fête",
+		"City": "paris",
+		"State": "AL",
+		"Zip Code": "10000"
+	},{
+		"First Name": "Jordan",
+		"Last Name": "Zozo",
+		"Start Date": "01/11/2022",
+		"Department": "Engineering",
+		"Date of Birth": "22/02/1996",
+		"Street": "1 rue de la fête",
+		"City": "paris",
+		"State": "AL",
+		"Zip Code": "10000"
+	},{
+		"First Name": "Jordan",
+		"Last Name": "Zozo",
+		"Start Date": "01/11/2022",
+		"Department": "Engineering",
+		"Date of Birth": "22/02/1996",
+		"Street": "1 rue de la fête",
+		"City": "paris",
+		"State": "AL",
+		"Zip Code": "10000"
+	},{
+		"First Name": "Jordan",
+		"Last Name": "Zozo",
+		"Start Date": "01/11/2022",
+		"Department": "Engineering",
+		"Date of Birth": "22/02/1996",
+		"Street": "1 rue de la fête",
+		"City": "paris",
+		"State": "AL",
+		"Zip Code": "10000"
+	},{
+		"First Name": "eleven",
+		"Last Name": "Zozo",
+		"Start Date": "01/11/2022",
+		"Department": "Engineering",
+		"Date of Birth": "22/02/1996",
+		"Street": "1 rue de la fête",
+		"City": "paris",
+		"State": "AL",
+		"Zip Code": "10000"
+	},
 ]
+
+
+test('get message when no data', function () {
+	render(
+		<Table data={[]} noDataMessage={"pas d'employés correspondant"}
+		/>
+	)
+	const tabler = screen.getByTestId('tableNoData')
+	expect(tabler).toHaveTextContent('correspondant')
+})
 
 
 test('data table on screen', function () {
@@ -65,7 +136,6 @@ test('data table on screen', function () {
 		<Table data={data}
 		/>
 	)
-
 	const table = screen.getByTestId("table")
 	expect(table).toHaveTextContent("Alexis", "Thomas", "Théo", "Manu", "Jordan")
 	expect(table).toHaveTextContent("First Name", "Last Name", "Start Date", "Department", "Date of Birth", "Street", "City", "State", "Zip Code")
@@ -93,4 +163,27 @@ test('search bar find nobody', function () {
 	const tabler = screen.getByTestId('table')
 	fireEvent.change(input, {target: {value: 'Lucie'}})
 	expect(tabler).toHaveTextContent('pas d\'employés correspondant')
+})
+
+test('next page btn', function () {
+	render(
+		<Table data={data} noDataMessage={"pas d'employés correspondant"}
+		/>
+	)
+	const tabler = screen.getByTestId('table')
+	const btnNextPage = screen.getByTestId('btnNextPage')
+	fireEvent.click(btnNextPage)
+	expect(tabler).toHaveTextContent('eleven')
+})
+
+
+test('click on btn page to get second page', function () {
+	render(
+		<Table data={data} noDataMessage={"pas d'employés correspondant"}
+		/>
+	)
+	const tabler = screen.getByTestId('table')
+	const allBtnPage = screen.getAllByTestId('pageBtn')
+	fireEvent.click(allBtnPage[1])
+	expect(tabler).toHaveTextContent('eleven')
 })

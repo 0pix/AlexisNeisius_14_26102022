@@ -19,7 +19,7 @@ const Employee = () => {
 		<div className={'employees-Page'}>
 			<div className="containerEmployee page-right">
 				<h2>Current Employees</h2>
-				<table id="employee-table" className="display"></table>
+				{/* <table id="employee-table" className="display"></table> */}
 				<Table data={employees} noDataMessage={"pas d'employés correspondant"}>
 				</Table>
 			</div>

@@ -1,70 +1,69 @@
-import React, {useEffect, useState} from "react";
-import "./Home.css";
-import Modal from "../../components/Modal/Modal";
-import {useDispatch, useSelector} from "react-redux";
-import SelectDropDown from "../../components/SelectDropDown/SelectDropDown";
-import Calendar from "../../components/Calendar/Calendar";
-import {saveEmployee} from "../../store/employee/employeeSlice";
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from "react"
+import "./Home.css"
+import Modal from "../../components/Modal/Modal"
+import {useDispatch, useSelector} from "react-redux"
+import SelectDropDown from "../../components/SelectDropDown/SelectDropDown"
+import {saveEmployee} from "../../store/employee/employeeSlice"
+import {Link} from "react-router-dom"
+import Calendar from "../../components/Calendar/Calendar"
 
 const Home = () => {
-	const [openModal, setOpenModal] = useState(false);
-	const employees = useSelector((state) => state.employees.employees);
-	const states = useSelector((state) => state.employees.states);
-	const department = useSelector((state) => state.employees.department);
-	const dispatch = useDispatch();
-
+	const [openModal, setOpenModal] = useState(false)
+	const employees = useSelector((state) => state.employees.employees || '')
+	const states = useSelector((state) => state.employees.states || '')
+	const department = useSelector((state) => state.employees.department || '')
+	const dispatch = useDispatch()
 
 	const functionCloseBtn = () => {
-		setOpenModal(false);
-	};
+		setOpenModal(false)
+	}
 
 	useEffect(() => {
-		document.title = 'HRnet | Home';
-	}, []);
+		document.title = "HRnet | Home"
+	}, [])
 
 	const handlerSubmit = (e) => {
-		e.preventDefault();
+		e.preventDefault()
 		const employee = {
-			'First Name': e.target[0].value || "",
-			'Last Name': e.target[1].value || "",
-			'Start Date': e.target[3].value || "",
-			'Department': e.target[8].value || "",
-			'Date of Birth': e.target[2].value || "",
-			'Street': e.target[4].value || "",
-			'City': e.target[5].value || "",
-			'State': e.target[6].value || "",
-			'Zip Code': e.target[7].value || "",
-		};
+			"First Name": e.target[0].value || "",
+			"Last Name": e.target[1].value || "",
+			"Start Date": e.target[3].value || "",
+			"Department": e.target[8].value || "",
+			"Date of Birth": e.target[2].value || "",
+			"Street": e.target[4].value || "",
+			"City": e.target[5].value || "",
+			"State": e.target[6].value || "",
+			"Zip Code": e.target[7].value || "",
+		}
+
 		if (
-			employee['First Name'] === "" ||
-			employee['Last Name'] === "" ||
-			employee['Start Date'] === "" ||
-			employee['Department'] === "" ||
-			employee['Date of Birth'] === "" ||
-			employee['Street'] === "" ||
-			employee['City'] === "" ||
-			employee['State'] === "" ||
-			employee['Zip Code'] === ""
+			employee["First Name"] === "" ||
+			employee["Last Name"] === "" ||
+			employee["Start Date"] === "" ||
+			employee["Department"] === "" ||
+			employee["Date of Birth"] === "" ||
+			employee["Street"] === "" ||
+			employee["City"] === "" ||
+			employee["State"] === "" ||
+			employee["Zip Code"] === ""
 		) {
-			alert("un ou plusieurs champs ne sont pas remplis");
+			alert("un ou plusieurs champs ne sont pas remplis")
 		} else {
-			e.preventDefault();
+			e.preventDefault()
 			// alert('ouiiiiiiiiiiiiii ça part')
-			setOpenModal(true);
+			setOpenModal(true)
 			// console.log(employee)
 			dispatch(saveEmployee(employee))
 		}
-	};
+	}
 
 	useEffect(() => {
-		localStorage.setItem("employees", JSON.stringify(employees));
+		localStorage.setItem("employees", JSON.stringify(employees))
 	}, [employees])
-	console.log('test: ', employees)
-
+	// console.log("test: ", employees)
 
 	return (
-		<div className={'home'}>
+		<div>
 			<Modal
 				openModal={openModal}
 				setOpenModal={setOpenModal}
@@ -72,7 +71,7 @@ const Home = () => {
 			>
 				Employé enregistré
 			</Modal>
-			<div className={"page-left"}>
+			<div className={"home page-left"}>
 				<div className="container">
 					<form
 						onSubmit={(e) => handlerSubmit(e)}
@@ -80,41 +79,42 @@ const Home = () => {
 						id="create-employee"
 					>
 						<h2>Create Employee</h2>
-						<label htmlFor="first-name">First Name
+						<label htmlFor="first-name">
+							First Name
 							<input type="text" id="first-name"/>
 						</label>
 
-						<label htmlFor="last-name">Last Name
+						<label htmlFor="last-name">
+							Last Name
 							<input type="text" id="last-name"/>
 						</label>
 
-						<Calendar
-							language={"fr-FR"}
+						{/* <Calendar
+							language={"en-US"}
 							label={"Date of Birth"}
-							htmlFor={"start-date"}
-						/>
+							htmlFor={"birth-date"}
+						/> */}
 
-						<Calendar
+						{/* <Calendar
 							language={"en-US"}
 							label={"Start Date"}
 							htmlFor={"start-date"}
-						/>
+						/> */}
 
-						<label htmlFor="street">Street
+						<label htmlFor="street">
+							Street
 							<input id="street" type="text"/>
 						</label>
 
-						<label htmlFor="city">City
+						<label htmlFor="city">
+							City
 							<input id="city" type="text"/>
 						</label>
 
-						<SelectDropDown
-							data={states}
-							htmlFor={"states"}
-							label={"State"}
-						/>
+						<SelectDropDown data={states} htmlFor={"state"} label={"State"}/>
 
-						<label htmlFor="zip-code">Zip Code
+						<label htmlFor="zip-code">
+							Zip Code
 							<input id="zip-code" type="number"/>
 						</label>
 
@@ -123,6 +123,7 @@ const Home = () => {
 							htmlFor={"department"}
 							label={"Department"}
 						/>
+
 						<div className={"containerBtn"}>
 							<button style={{margin: "auto"}}>Save</button>
 						</div>
@@ -131,7 +132,6 @@ const Home = () => {
 				</div>
 			</div>
 		</div>
-
-	);
-};
-export default Home;
+	)
+}
+export default Home
