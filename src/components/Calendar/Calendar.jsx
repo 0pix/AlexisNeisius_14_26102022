@@ -143,7 +143,7 @@ const Calendar = ({ language, label, htmlFor }) => {
             />
             </label>
           {openCalendar && (
-            <div className={"calendar"}>
+            <div data-testid={'Calendar'}   className={"calendar"}>
               <div className={"titleDate"}>
                 <button
                   className={"titleDateBtn"}

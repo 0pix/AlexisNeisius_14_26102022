@@ -54,7 +54,7 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 		if (data[0][props].match(regExp)) {
 			return (
 				<th className={reverse ? "reverseArray" : null}
-						onClick={() => sortArrayDate()}>{children}{active === props &&
+						onClick={() => sortArrayDate()}>{children} date{active === props &&
 					<img src={chevron}
 							 alt={chevron}/>}
 				</th>);

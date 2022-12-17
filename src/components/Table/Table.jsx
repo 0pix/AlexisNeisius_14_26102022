@@ -6,13 +6,14 @@ import arrowPage from "../../assets/svg/arrowPage.svg"
 function Table({ data, noDataMessage }) {
   const collumnName = data.length && Object.keys(data.length ? data[0] : null)
   const [active, setActive] = useState("")
-  const [employees, setEmployees] = useState(data)
+  const [employees, setEmployees] = useState(data || '')
   const [reverse, setReverse] = useState(true)
   const [employeeOnPage, setEmployeeOnPage] = useState(10)
   const [input, setInput] = useState("")
   const [sliceStart, setSliceStart] = useState(0)
   const [page, setPage] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+
 
   /**
    *
@@ -26,6 +27,7 @@ function Table({ data, noDataMessage }) {
   const searchEmployee = (e) => {
     setSliceStart(0)
     setCurrentPage(1)
+    setActive('')
     const newArray = data.reduce((array, currentValue) => {
       for (let x = 0; x < collumnName.length; x++) {
         if (
@@ -177,7 +179,6 @@ function Table({ data, noDataMessage }) {
                   className={`${
                     index % 2 === 0 ? "tablePair" : "tableUnPair"
                   } tableData swing-in-top-fwd `}
-                  key={data.indexOf(item)}
                 >
                   {collumnName.map((i) => (
                     <td key={collumnName.indexOf(i)}>{item[i]}</td>

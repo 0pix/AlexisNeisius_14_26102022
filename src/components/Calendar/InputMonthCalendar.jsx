@@ -23,10 +23,10 @@ const InputMonthCalendar = ({data, setData, language}) => {
 
 
 	return (
-		<div className={'inputCalendar'}>
-			<button type={"button"} onClick={() => setOpenInput(!openInput)}>{months[data - 1]}</button>
+		<div data-testid={'inputCalendarMonth'} className={'inputCalendar'}>
+			<button data-testid={'maintBtnMonths'} type={"button"} onClick={() => setOpenInput(!openInput)}>{months[data - 1]}</button>
 			{openInput && <ul>
-				{months.map((el) => <li onClick={() => handlerClick(el)}>{el}</li>)}
+				{months.map((el) => <li data-testid={'monthsBtn'} onClick={() => handlerClick(el)}>{el}</li>)}
 			</ul>}
 		</div>
 	);

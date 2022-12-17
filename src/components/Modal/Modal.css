@@ -45,3 +45,7 @@
   right: 10px;
   border: none;
 }
+
+.modal button {
+cursor: pointer;
+}
