@@ -10,7 +10,7 @@ const Header = () => {
   }
 
   return (
-    <header className={'header'}>
+    <header data-testid={'header'} className={'header'}>
       <h1>HRnet</h1>
       <nav>
         <ul>

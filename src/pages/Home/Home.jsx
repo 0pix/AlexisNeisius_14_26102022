@@ -14,756 +14,756 @@ const Home = () => {
 	const department = useSelector((state) => state.employees.department || '')
 	const dispatch = useDispatch()
 	const test = [
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Alexis",
-        "Last Name": "Zozo",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "22/02/1996",
-        "Street": "1 rue de la fête",
-        "City": "paris",
-        "State": "AL",
-        "Zip Code": "10000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "Zoro",
-        "Last Name": "ayio",
-        "Start Date": "01/11/2022",
-        "Department": "Engineering",
-        "Date of Birth": "01/02/1978",
-        "Street": "56 rue du bout du pont",
-        "City": "amiens",
-        "State": "NY",
-        "Zip Code": "57000"
-    },
-    {
-        "First Name": "louis ",
-        "Last Name": "wager",
-        "Start Date": "10/11/2022",
-        "Department": "Legal",
-        "Date of Birth": "10/11/1993",
-        "Street": "6 rue place du fromage ",
-        "City": "lyon",
-        "State": "RI",
-        "Zip Code": "78000"
-    },
-    {
-        "First Name": "toto",
-        "Last Name": "gjhghjghj",
-        "Start Date": "07/12/2022",
-        "Department": "Marketing",
-        "Date of Birth": "06/12/2022",
-        "Street": "ghjghjghjgjhghjg",
-        "City": "jhghjghjgjhg",
-        "State": "AZ",
-        "Zip Code": "65456465"
-    },
-    {
-        "First Name": "Julia ",
-        "Last Name": "Hiro",
-        "Start Date": "16/11/2022",
-        "Department": "Human Resources",
-        "Date of Birth": "01/12/2022",
-        "Street": "30 rue Higo",
-        "City": "Nice",
-        "State": "CA",
-        "Zip Code": "15"
-    }
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Alexis",
+			"Last Name": "Zozo",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "22/02/1996",
+			"Street": "1 rue de la fête",
+			"City": "paris",
+			"State": "AL",
+			"Zip Code": "10000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "Zoro",
+			"Last Name": "ayio",
+			"Start Date": "01/11/2022",
+			"Department": "Engineering",
+			"Date of Birth": "01/02/1978",
+			"Street": "56 rue du bout du pont",
+			"City": "amiens",
+			"State": "NY",
+			"Zip Code": "57000"
+		},
+		{
+			"First Name": "louis ",
+			"Last Name": "wager",
+			"Start Date": "10/11/2022",
+			"Department": "Legal",
+			"Date of Birth": "10/11/1993",
+			"Street": "6 rue place du fromage ",
+			"City": "lyon",
+			"State": "RI",
+			"Zip Code": "78000"
+		},
+		{
+			"First Name": "toto",
+			"Last Name": "gjhghjghj",
+			"Start Date": "07/12/2022",
+			"Department": "Marketing",
+			"Date of Birth": "06/12/2022",
+			"Street": "ghjghjghjgjhghjg",
+			"City": "jhghjghjgjhg",
+			"State": "AZ",
+			"Zip Code": "65456465"
+		},
+		{
+			"First Name": "Julia ",
+			"Last Name": "Hiro",
+			"Start Date": "16/11/2022",
+			"Department": "Human Resources",
+			"Date of Birth": "01/12/2022",
+			"Street": "30 rue Higo",
+			"City": "Nice",
+			"State": "CA",
+			"Zip Code": "15"
+		}
 
-]
+	]
 
 	const functionCloseBtn = () => {
 		setOpenModal(false)
@@ -816,7 +816,7 @@ const Home = () => {
 	// localStorage.setItem("employees", JSON.stringify(test))
 
 	return (
-		<div>
+		<div data-testid={'home'}>
 			<Modal
 				openModal={openModal}
 				setOpenModal={setOpenModal}
@@ -834,12 +834,12 @@ const Home = () => {
 						<h2>Create Employee</h2>
 						<label htmlFor="first-name">
 							First Name
-							<input type="text" id="first-name"/>
+							<input data-testid={'first-name'} type="text" id="first-name"/>
 						</label>
 
 						<label htmlFor="last-name">
 							Last Name
-							<input type="text" id="last-name"/>
+							<input data-testid={'last-name'} type="text" id="last-name"/>
 						</label>
 
 						<Calendar
@@ -856,19 +856,19 @@ const Home = () => {
 
 						<label htmlFor="street">
 							Street
-							<input id="street" type="text"/>
+							<input data-testid={'street'} id="street" type="text"/>
 						</label>
 
 						<label htmlFor="city">
 							City
-							<input id="city" type="text"/>
+							<input data-testid={'city'} id="city" type="text"/>
 						</label>
 
 						<SelectDropDown data={states} htmlFor={"state"} label={"State"}/>
 
 						<label htmlFor="zip-code">
 							Zip Code
-							<input id="zip-code" type="number"/>
+							<input data-testid={'zipCode'} id="zip-code" type="number"/>
 						</label>
 
 						<SelectDropDown
@@ -878,7 +878,7 @@ const Home = () => {
 						/>
 
 						<div className={"containerBtn"}>
-							<button style={{margin: "auto"}}>Save</button>
+							<button data-testid={'submit'} style={{margin: "auto"}}>Save</button>
 						</div>
 						<Link to={"/Employee"}> see employees</Link>
 					</form>

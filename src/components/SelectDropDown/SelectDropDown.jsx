@@ -15,13 +15,15 @@ const SelectDropDown = ({data, htmlFor, label}) => {
 		if (typeof state === "object") {
 			const key = Object.keys(state);
 			return (
-				<li key={`${key}${state.name}`} className={"toto"} onClick={() => handleClick(state[key[1]])}>
+				<li data-testid={`itemDropDown-${htmlFor}`} key={`${key}${state.name}`} className={"toto"}
+						onClick={() => handleClick(state[key[1]])}>
 					{state.name}
 				</li>
 			);
 		}
 		return (
-			<li key={`${state}-noObject`} className={"toto"} onClick={() => handleClick(state)}>
+			<li data-testid={`itemDropDown-${htmlFor}`} key={`${state}-noObject`} className={"toto"}
+					onClick={() => handleClick(state)}>
 				{state}
 			</li>
 		);
@@ -39,8 +41,10 @@ const SelectDropDown = ({data, htmlFor, label}) => {
 				<label htmlFor={htmlFor}>
 					{label}
 					<input
-					readOnly
-						data-testid="selectDropDown"
+						onClick={(e) => console.log('la valeur :', e.target.value)}
+						readOnly
+						// defaultValue={""}
+						data-testid={htmlFor}
 						autoComplete={"chrome-off"}
 						placeholder={"chose option"}
 						className={"stateInput"}

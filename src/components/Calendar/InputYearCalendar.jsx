@@ -21,9 +21,9 @@ const InputYearCalendar = ({data, setData, minValue, maxValue}) => {
 
 	return (
 		<div className={'inputCalendar'}>
-			<button type={"button"} onClick={() => setOpenInput(!openInput)}>{data}</button>
+			<button data-testid={'maintBtnYears'} type={"button"} onClick={() => setOpenInput(!openInput)}>{data}</button>
 			{openInput && <ul>
-				{yearsInput.map((el) => <li onClick={(e) => handlerClick(e.target.innerHTML)}>{el}</li>)}
+				{yearsInput.map((el) => <li data-testid={'yearsBtn'} onClick={(e) => handlerClick(e.target.innerHTML)}>{el}</li>)}
 			</ul>}
 		</div>
 	);

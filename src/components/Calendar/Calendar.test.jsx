@@ -45,6 +45,28 @@ if(allMonths[0] !== currentMonth){
 expect(inputCalendar).not.toHaveTextContent(currentMonth)
 })
 
+
+test('choose different year', function () {
+	render(<form action="">
+	<Calendar language={"en-US"}
+						label={"Start Date"}
+						htmlFor={"start-date"}>
+	</Calendar>
+</form>)
+const input = screen.getByTestId('start-date')
+fireEvent.click(input)
+const inputCalendar = screen.getByTestId('Calendar')
+const yearBtn = screen.getByTestId('maintBtnYears')
+fireEvent.click(yearBtn)
+const currentYear =  yearBtn.textContent || yearBtn.innerText;
+expect(yearBtn).toHaveTextContent(currentYear)
+
+const allYears= screen.getAllByTestId('yearsBtn')
+
+fireEvent.click(allYears[1])
+
+expect(inputCalendar).not.toHaveTextContent(currentYear)
+})
 	
 
 

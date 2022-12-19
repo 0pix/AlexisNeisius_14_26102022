@@ -1,5 +1,4 @@
-import {fireEvent, render} from "@testing-library/react";
-import {screen} from "@testing-library/react";
+import {fireEvent, render, screen} from "@testing-library/react";
 import '@testing-library/jest-dom'
 import SelectDropDown from "./SelectDropDown";
 import React from "react";
@@ -13,7 +12,7 @@ test('selectDropDown with array data', function () {
 			label={"Department"}
 		/>
 	</form>)
-	const inputNode = screen.getByTestId("selectDropDown")
+	const inputNode = screen.getByTestId("department")
 	fireEvent.click(inputNode)
 	const dep = screen.getByText("Sales")
 	fireEvent.click(dep)
@@ -266,7 +265,7 @@ test('selectDropDown with object data', function () {
 			label={"State"}
 		/>
 	</form>)
-	const inputNode = screen.getByTestId("selectDropDown")
+	const inputNode = screen.getByTestId("state")
 	fireEvent.click(inputNode)
 	const state = screen.getByText("Alabama")
 	fireEvent.click(state)

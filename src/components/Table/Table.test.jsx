@@ -117,6 +117,17 @@ const data = [
 		"State": "AL",
 		"Zip Code": "10000"
 	},
+	{
+		"First Name": "Zeleven",
+		"Last Name": "Zozo",
+		"Start Date": "01/11/1990",
+		"Department": "Engineering",
+		"Date of Birth": "22/02/1996",
+		"Street": "1 rue de la fête",
+		"City": "paris",
+		"State": "AL",
+		"Zip Code": "10000"
+	},
 ]
 
 
@@ -186,4 +197,29 @@ test('click on btn page to get second page', function () {
 	const allBtnPage = screen.getAllByTestId('pageBtn')
 	fireEvent.click(allBtnPage[1])
 	expect(tabler).toHaveTextContent('eleven')
+})
+
+
+test('Filter button no date', function () {
+	render(
+		<Table data={data} noDataMessage={"pas d'employés correspondant"}
+		/>
+	)
+	const btnFilter = screen.getAllByTestId('thNoDate')
+	fireEvent.click(btnFilter[0])
+	fireEvent.click(btnFilter[0])
+	const tabler = screen.getByTestId('table')
+	expect(tabler).toHaveTextContent('Zeleven')
+})
+
+
+test('Filter button date', function () {
+	render(
+		<Table data={data} noDataMessage={"pas d'employés correspondant"}
+		/>
+	)
+	const btnFilter = screen.getAllByTestId('thDate')
+	fireEvent.click(btnFilter[0])
+	const tabler = screen.getByTestId('table')
+	expect(tabler).toHaveTextContent('Zeleven')
 })

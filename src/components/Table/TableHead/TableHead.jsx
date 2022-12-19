@@ -25,14 +25,12 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 			array.reverse()
 			setReverse(!reverse)
 		}
-
 		setData(array)
 	}
 
 	const sortArrayDate = () => {
 		let array = [...data]
 		setActive(props)
-
 
 		if (props !== active) {
 			array.sort((a, b) => {
@@ -49,18 +47,20 @@ const TableHead = ({children, data, setData, props, active, setActive, reverse, 
 	}
 
 
+
 	if (data.length > 0) {
+		// regExp d'une date
 		const regExp = /^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/;
 		if (data[0][props].match(regExp)) {
 			return (
-				<th className={reverse ? "reverseArray" : null}
+				<th data-testid={'thDate'} className={reverse ? "reverseArray" : null}
 						onClick={() => sortArrayDate()}>{children} date{active === props &&
 					<img src={chevron}
 							 alt={chevron}/>}
 				</th>);
 		} else {
 			return (
-				<th className={reverse ? "reverseArray" : null} onClick={sortArrayString}>{children} {active === props &&
+				<th data-testid={'thNoDate'}className={reverse ? "reverseArray" : null} onClick={sortArrayString}>{children} {active === props &&
 					<img src={chevron}
 							 alt={chevron}/>}</th>
 			);
