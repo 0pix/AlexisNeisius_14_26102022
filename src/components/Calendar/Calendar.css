@@ -79,6 +79,7 @@
 
 .allDays {
   cursor: pointer;
+  background-color: aqua;
 }
 
 .allDays:hover {

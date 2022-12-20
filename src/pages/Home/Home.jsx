@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import "./Home.css"
 import Modal from "../../components/Modal/Modal"
-import {useDispatch, useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import SelectDropDown from "../../components/SelectDropDown/SelectDropDown"
-import {saveEmployee} from "../../store/employee/employeeSlice"
-import {Link} from "react-router-dom"
+import { saveEmployee } from "../../store/employee/employeeSlice"
+import { Link } from "react-router-dom"
 import Calendar from "../../components/Calendar/Calendar"
 
 const Home = () => {
@@ -801,9 +801,8 @@ const Home = () => {
 			alert("un ou plusieurs champs ne sont pas remplis")
 		} else {
 			e.preventDefault()
-			// alert('ouiiiiiiiiiiiiii ça part')
+			// alert('oui ça part')
 			setOpenModal(true)
-			// console.log(employee)
 			dispatch(saveEmployee(employee))
 		}
 	}
@@ -812,8 +811,6 @@ const Home = () => {
 		localStorage.setItem("employees", JSON.stringify(employees))
 	}, [employees])
 	console.log("test: ", employees)
-
-	// localStorage.setItem("employees", JSON.stringify(test))
 
 	return (
 		<div data-testid={'home'}>
@@ -834,12 +831,12 @@ const Home = () => {
 						<h2>Create Employee</h2>
 						<label htmlFor="first-name">
 							First Name
-							<input data-testid={'first-name'} type="text" id="first-name"/>
+							<input data-testid={'first-name'} type="text" id="first-name" />
 						</label>
 
 						<label htmlFor="last-name">
 							Last Name
-							<input data-testid={'last-name'} type="text" id="last-name"/>
+							<input data-testid={'last-name'} type="text" id="last-name" />
 						</label>
 
 						<Calendar
@@ -856,19 +853,19 @@ const Home = () => {
 
 						<label htmlFor="street">
 							Street
-							<input data-testid={'street'} id="street" type="text"/>
+							<input data-testid={'street'} id="street" type="text" />
 						</label>
 
 						<label htmlFor="city">
 							City
-							<input data-testid={'city'} id="city" type="text"/>
+							<input data-testid={'city'} id="city" type="text" />
 						</label>
 
-						<SelectDropDown data={states} htmlFor={"state"} label={"State"}/>
+						<SelectDropDown data={states} htmlFor={"state"} label={"State"} />
 
 						<label htmlFor="zip-code">
 							Zip Code
-							<input data-testid={'zipCode'} id="zip-code" type="number"/>
+							<input data-testid={'zipCode'} id="zip-code" type="number" />
 						</label>
 
 						<SelectDropDown
@@ -878,7 +875,7 @@ const Home = () => {
 						/>
 
 						<div className={"containerBtn"}>
-							<button data-testid={'submit'} style={{margin: "auto"}}>Save</button>
+							<button data-testid={'submit'} style={{ margin: "auto" }}>Save</button>
 						</div>
 						<Link to={"/Employee"}> see employees</Link>
 					</form>
