@@ -112,6 +112,7 @@ test('back on today', function () {
 	fireEvent.click(todayBtn)
 	otherDay = screen.getByTestId('today').textContent || screen.getByTestId('today').innerText
 	expect(currentDay).toEqual(otherDay)
+
 })
 
 

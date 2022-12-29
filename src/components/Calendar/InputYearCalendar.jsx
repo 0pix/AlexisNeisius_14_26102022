@@ -3,8 +3,6 @@ import './InputCalendar.css'
 
 const InputYearCalendar = ({data, setData, minValue, maxValue}) => {
 	const [openInput, setOpenInput] = useState(false)
-
-
 	const years = () => {
 		const years = [minValue]
 		for (let x = minValue; x < maxValue; x++) {
@@ -23,7 +21,8 @@ const InputYearCalendar = ({data, setData, minValue, maxValue}) => {
 		<div className={'inputCalendar'}>
 			<button data-testid={'maintBtnYears'} type={"button"} onClick={() => setOpenInput(!openInput)}>{data}</button>
 			{openInput && <ul>
-				{yearsInput.map((el) => <li data-testid={'yearsBtn'} onClick={(e) => handlerClick(e.target.innerHTML)}>{el}</li>)}
+				{yearsInput.map((el) => <li data-testid={'yearsBtn'}
+																		onClick={(e) => handlerClick(e.target.innerHTML)}>{el}</li>)}
 			</ul>}
 		</div>
 	);

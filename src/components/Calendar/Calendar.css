@@ -1,7 +1,6 @@
 .test {
   width: 100%;
   caret-color: transparent;
-  /* background-color: coral; */
 }
 
 .test button {
@@ -18,7 +17,6 @@
 }
 
 .backgroundCalendar {
-  /* background: rgba(255, 0, 0, 0.568); */
   position: absolute;
   left: 0;
   top: 0;
@@ -64,10 +62,6 @@
   height: 25px;
 }
 
-/*.parent div:hover {*/
-/*  background-color: orange;*/
-/*}*/
-
 .previousNextDays {
   color: #cecece;
 }
@@ -79,20 +73,17 @@
 
 .allDays {
   cursor: pointer;
-  background-color: aqua;
 }
 
 .allDays:hover {
-  background-color: orange;
-  border-radius: 10px;
-
+  background-color: rgba(34, 48, 105, 0.2);
+  border-radius: 8px;
 }
-
 
 .today {
   background-color: #223069;
   color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -102,7 +93,6 @@
   padding: 10px 20px;
   border-radius: 10px;
   margin-top: 10px;
-
 }
 
 .titleDate {
@@ -110,17 +100,16 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /*background-color: red;*/
 }
 
 .titleDateBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  /*border: 1px black solid;*/
   width: 25px;
   height: 25px;
   border-radius: 30px;
   background-color: transparent;
   font-size: 1.2em;
+  cursor: pointer;
 }

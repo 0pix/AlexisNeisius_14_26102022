@@ -6,11 +6,21 @@ const SelectDropDown = ({data, htmlFor, label}) => {
 	const [message, setMessage] = useState("");
 	const [open, setOpen] = useState(false);
 
+	/**
+	 *  Function onClick to store select item in the variable
+	 *  @param {string} state - the select state
+	 *  @returns {string} - store item in the variable
+	 */
 	const handleClick = (state) => {
 		setMessage(state);
 		setOpen(!open);
 	};
 
+	/**
+	 *  Function to map de data
+	 *  @param {string} state - the state
+	 *  @returns {div} - div <li> with item
+	 */
 	const displayData = (state) => {
 		if (typeof state === "object") {
 			const key = Object.keys(state);
@@ -69,4 +79,3 @@ const SelectDropDown = ({data, htmlFor, label}) => {
 
 export default SelectDropDown;
 
-//TODO: mettre deux paramètres, un pour le contenue afficher et l'autre pour la valeur

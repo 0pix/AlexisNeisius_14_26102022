@@ -3,16 +3,12 @@ import Table from "../../components/Table/Table";
 import {useSelector} from "react-redux";
 import './Employee.css'
 
-
 const Employee = () => {
 	const employees = useSelector((state) => state.employees.employees);
-
 
 	useEffect(() => {
 		document.title = 'HRnet | Employee';
 	}, []);
-
-	console.log(employees)
 
 	return (
 		<div data-testid={'employee'} className={'employees-Page'}>

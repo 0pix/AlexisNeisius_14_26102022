@@ -29,13 +29,17 @@
   margin-bottom: 5px;
 }
 
+.allHome {
+  width: 100%;
+}
+
 .home {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+  position: relative;
 }
 
 .home input {
@@ -72,18 +76,10 @@
 }
 
 .home fieldset {
-  /*background-color: rgb(209, 213, 255);*/
   border: 3px dashed #eff3ff;
   border-radius: 10px;
-  /*width: 320px;*/
   width: 100%;
-  /*margin-bottom: 10px;*/
 }
-
-.home fieldset input {
-  /*background: gray;*/
-}
-
 
 .home form {
   display: flex;

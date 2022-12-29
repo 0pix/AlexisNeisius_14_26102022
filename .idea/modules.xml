@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../frontEndBase/.idea/Projet-14.iml" filepath="$PROJECT_DIR$/../../frontEndBase/.idea/Projet-14.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/app.iml" filepath="$PROJECT_DIR$/.idea/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../modalopix/.idea/modalopix.iml" filepath="$PROJECT_DIR$/../../modalopix/.idea/modalopix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../testmodalopix/.idea/testmodalopix.iml" filepath="$PROJECT_DIR$/../../testmodalopix/.idea/testmodalopix.iml" />
     </modules>
   </component>
 </project>

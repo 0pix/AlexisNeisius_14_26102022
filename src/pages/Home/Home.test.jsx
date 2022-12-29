@@ -1,10 +1,10 @@
-import {fireEvent, render, screen} from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom'
 import React from "react";
 import Home from './Home';
-import {store} from "../../store/store";
-import {Provider} from "react-redux";
-import {MemoryRouter} from "react-router-dom";
+import { store } from "../../store/store";
+import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router-dom";
 
 
 test('home page on screen', function () {
@@ -12,7 +12,7 @@ test('home page on screen', function () {
 	render(
 		<MemoryRouter initialEntries={[route]}>
 			<Provider store={store}>
-				<Home/>
+				<Home />
 			</Provider>
 		</MemoryRouter>,
 	)
@@ -25,34 +25,34 @@ test('submit form', function () {
 	render(
 		<MemoryRouter initialEntries={[route]}>
 			<Provider store={store}>
-				<Home/>
+				<Home />
 			</Provider>
 		</MemoryRouter>,
 	)
 	const home = screen.getByTestId('home')
 
 	const firstName = screen.getByTestId("first-name")
-	fireEvent.change(firstName, {target: {value: 'Thomas'}})
+	fireEvent.change(firstName, { target: { value: 'Thomas' } })
 	expect(firstName.value).toBe('Thomas')
 
 	const lastName = screen.getByTestId("last-name")
-	fireEvent.change(lastName, {target: {value: 'Thomas'}})
+	fireEvent.change(lastName, { target: { value: 'Thomas' } })
 	expect(lastName.value).not.toBe('')
 
 	const birthDate = screen.getByTestId("birth-date")
-	fireEvent.change(birthDate, {target: {value: '14/12/2022'}})
+	fireEvent.change(birthDate, { target: { value: '14/12/2022' } })
 	expect(birthDate.value).not.toBe('')
 
 	const startDate = screen.getByTestId("start-date")
-	fireEvent.change(startDate, {target: {value: '14/12/2022'}})
+	fireEvent.change(startDate, { target: { value: '14/12/2022' } })
 	expect(startDate.value).not.toBe('')
 
 	const street = screen.getByTestId("street")
-	fireEvent.change(street, {target: {value: 'Thomas'}})
+	fireEvent.change(street, { target: { value: 'Thomas' } })
 	expect(street.value).not.toBe('')
 
 	const city = screen.getByTestId("city")
-	fireEvent.change(city, {target: {value: 'Thomas'}})
+	fireEvent.change(city, { target: { value: 'Thomas' } })
 	expect(city.value).not.toBe('')
 
 	const state = screen.getByTestId("state")
@@ -63,7 +63,7 @@ test('submit form', function () {
 	expect(state.value).not.toBe('')
 
 	const zipCode = screen.getByTestId('zipCode')
-	fireEvent.change(zipCode, {target: {value: 41000}})
+	fireEvent.change(zipCode, { target: { value: 41000 } })
 	expect(zipCode.value).not.toBe('')
 
 	const departement = screen.getByTestId("department")

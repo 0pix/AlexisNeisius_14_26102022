@@ -1,6 +1,7 @@
 
 table {
   outline: none;
+  width: 100%;
 }
 
 .table input {
@@ -13,35 +14,45 @@ table {
   padding: 10px;
 }
 
-.table input::placeholder{
+.table input::placeholder {
   color: #a7b1d5;
   font-weight: 600;
 }
 
 
 .table {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   min-height: 50%;
-  /*background-color: #445699;*/
-}
-
-.table tbody {
-  min-height: 200px;
 }
 
 .tabler {
-  /*border: 3px solid black;*/
+  width: 100%;
 }
 
-.table th {
+.containerTabler {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.tabler tbody {
+  width: 100%;
+}
+
+.tabler th {
   cursor: pointer;
   padding: 20px 30px;
   text-align: center;
   position: relative;
   color: #414141;
+}
+
+.tabler tr {
+  width: 100%;
 }
 
 

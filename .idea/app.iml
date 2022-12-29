@@ -9,5 +9,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="modalopix" />
+    <orderEntry type="module" module-name="testmodalopix" />
+    <orderEntry type="module" module-name="Projet-14" />
   </component>
 </module>
