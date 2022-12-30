@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./Calendar.css";
 import InputMonthCalendar from "./InputMonthCalendar";
 import InputYearCalendar from "./InputYearCalendar";
@@ -122,6 +122,14 @@ const Calendar = ({language, label, htmlFor}) => {
 		}
 	}
 
+
+	// close calendar when a new day was select
+	useEffect(() => {
+		if(openCalendar){
+		setOpenCalendar(false)
+		}
+	}, [day]);
+
 	/**
 	 *  Function to convert string day in number day and store it in the variables
 	 *  @param {string} day - the day in string from the button
@@ -131,6 +139,8 @@ const Calendar = ({language, label, htmlFor}) => {
 		setDay(day);
 		setDateInput(true);
 	}
+
+
 
 	//******************************* Functions Buttons  *******************************//
 
@@ -185,13 +195,14 @@ const Calendar = ({language, label, htmlFor}) => {
 				<label htmlFor={htmlFor}>
 					{label}
 					<input
+						aria-label={htmlFor}
 						readOnly
 						data-testid={htmlFor}
 						onClick={() => setOpenCalendar(!openCalendar)}
 						autoComplete={"chrome-off"}
 						className={"stateInput"}
 						type="text"
-						id="state"
+						id={htmlFor}
 						value={dateToInput()}
 					/>
 				</label>

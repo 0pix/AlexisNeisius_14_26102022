@@ -198,6 +198,7 @@ function Table({data, noDataMessage}) {
 				{/*previous btn*/}
 				{page.length >= 2 ? (
 					<button
+						aria-label="previousPage"
 						style={{
 							backgroundImage: `url(${arrowPage})`,
 						}}
@@ -221,6 +222,7 @@ function Table({data, noDataMessage}) {
 				{/*next btn*/}
 				{page.length >= 2 ? (
 					<button
+						aria-label="nextPage"
 						data-testid={'btnNextPage'}
 						style={{
 							backgroundImage: `url(${arrowPage})`,
